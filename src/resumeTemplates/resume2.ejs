@@ -1,0 +1,76 @@
+<div class="main_body">
+  <div style="margin-left: 10mm; margin-right: 10mm">
+    <div class="address">
+      <h1><%= name %></h1>
+      <div style="margin-bottom: 5px"><%= address.full_address %></div>
+      <div style="margin-bottom: 5px"><%= address.city_state_code %></div>
+      <div style="margin-bottom: 5px">Ph no. <%= address.ph_no %></div>
+      <div style="margin-bottom: 5px">
+        <% address.emails.forEach(single_email => { %> &nbsp;<%= single_email %>&nbsp; <% }) %>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>EDUCATION:</h2>
+      <ul>
+        <% for( let i = 0; i < educations.length; i++ ) { %>
+        <li>
+          <h3><%= educations[i].name %></h3>
+          <h4><%= educations[i].about %>,&nbsp;</h4>
+          <h4><%= educations[i].result %></h4>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h2>SKILLS:</h2>
+      <% skills.forEach(eachSkill => { %>
+      <span class="singleSkill"><%= eachSkill %></span>
+      <% }) %>
+    </div>
+
+    <div class="block">
+      <h2>WORK EXPERIENCE:</h2>
+      <ul>
+        <% for( let i = 0; i < work.length; i++ ) { %>
+        <li>
+          <span> <%= work[i] %> </span>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h2>PROJECTS:</h2>
+      <ul style="list-style-type: none">
+        <% for( let i = 0; i < projects.length; i++ ) { %>
+        <li>
+          <h3><%= projects[i].name %></h3>
+          <div><%= projects[i].details %></div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+
+    <style type="text/css">
+      .main_body {
+        font-family: Arial, Helvetica, sans-serif;
+        /* height:297mm; */
+        /* width:210mm; */
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .address {
+        display: grid;
+        place-items: center;
+      }
+      .singleSkill {
+        background-color: #ff4483;
+        padding: 8px 16px;
+        margin: 0px 4px;
+        border-radius: 20px;
+      }
+    </style>
+  </div>
+</div>

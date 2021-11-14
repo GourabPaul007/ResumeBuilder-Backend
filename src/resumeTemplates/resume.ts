@@ -1,0 +1,1 @@
+export const resume = "<div style='color:#ff0000;font-size:48px'>Hello There -name-</div>";

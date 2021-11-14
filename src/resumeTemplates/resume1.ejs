@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style type="text/css">
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        /* height:297mm; */
+        /* width:210mm; */
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .address {
+        display: grid;
+        place-items: center;
+      }
+      .singleSkill {
+        display: inline-block;
+        background-color: #ff4483;
+        padding: 8px 16px;
+        margin: 4px;
+        border-radius: 20px;
+      }
+      .block {
+        /* margin-top: 10px; */
+        margin-bottom: 24px;
+      }
+      .headers {
+        margin-bottom: 8px;
+        color: #ff0055;
+      }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./resume1.css"> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="margin-left: 15mm; margin-right: 15mm">
+      <div class="address">
+        <h1 class="headers"><%= about.name %></h1>
+        <div style="margin-bottom: 3px"><%= about.full_address %></div>
+        <div style="margin-bottom: 3px"><%= about.city_state_code %></div>
+        <div style="margin-bottom: 3px">Ph no. <%= about.ph_no %></div>
+        <div style="margin-bottom: 3px">
+          <% about.emails.forEach(single_email => { %> &nbsp;<%= single_email
+          %>&nbsp; <% }) %>
+        </div>
+      </div>
+
+      <!-- Education Area -->
+      <div class="block">
+        <h2 class="headers">EDUCATION:</h2>
+        <ul>
+          <% for( let i = 0; i < educations.length; i++ ) { %>
+          <li style="margin-bottom: 14px">
+            <div style="font-size: 20px; font-weight: 700; margin-bottom: 5px">
+              <%= educations[i].courseName %>
+            </div>
+            <div style="font-size: 16px">
+              <span>
+                <%= educations[i].organizationName %>, <%=
+                educations[i].courseResults %>
+              </span>
+            </div>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+
+      <!-- Skills Area -->
+      <div class="block">
+        <h2 class="headers">SKILLS:</h2>
+        <div style="margin-top: 16px">
+          <% skills.forEach(eachSkill => { %>
+          <div class="singleSkill"><%= eachSkill %></div>
+          <% }) %>
+        </div>
+      </div>
+
+      <!-- Works Area -->
+      <div class="block">
+        <h2 class="headers">WORK EXPERIENCE:</h2>
+        <% for( let i = 0; i < work.length; i++ ) { %>
+        <h3><%= work[i].organizationName %></h3>
+        <ul>
+          <% work[i].aboutJob.forEach(eachAbout => { %>
+          <li>
+            <span><%= eachAbout %></span>
+          </li>
+          <% }) %>
+        </ul>
+        <% } %>
+      </div>
+
+      <!-- Projects Area -->
+      <div class="block">
+        <h2 class="headers">PROJECTS:</h2>
+        <ul style="list-style-type: none">
+          <% for( let i = 0; i < projects.length; i++ ) { %>
+          <li>
+            <h3><%= projects[i].name %></h3>
+            <div style="font-size: 16px"><%= projects[i].details %></div>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+
+      <!-- Other Skills and Activities Area -->
+      <div class="block">
+        <h2 class="headers">Other Skills & Activities:</h2>
+        <ul>
+          <% for( let i = 0; i < others.length; i++ ) { %>
+          <li>
+            <div style="font-size: 16px"><%= others[i] %></div>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
