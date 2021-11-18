@@ -1,9 +1,9 @@
 {
   "about": {
     "name": "John Doe",
-    "full_address": "Saktigarh, Railgate Rd.",
-    "city_state_code": "Bangaon WB 743235",
-    "ph_no": "9064040525",
+    "fullAddress": "Saktigarh, Railgate Rd.",
+    "cityZip": "Bangaon WB 743235",
+    "phNo": "9064040525",
     "emails": ["gpaul@gmail.com", "paul@github.com"]
   },
   "educations": [
@@ -29,17 +29,17 @@
     "MongoDB",
     "NginX"
   ],
-  "work": [
+  "works": [
     {
       "organizationName": "Company One",
-      "aboutJob": [
+      "workDetails": [
         "Collaborated with the store merchandiser creating displays to attract clientele. The store merchandiser creating displays to attract clientele",
         "Dorime iterimo adapare dorime ameno ameno latire latiremo dorime"
       ]
     },
     {
       "organizationName": "Company Two",
-      "aboutJob": [
+      "workDetails": [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Details....Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem."
       ]
     }

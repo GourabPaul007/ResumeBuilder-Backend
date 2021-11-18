@@ -1,5 +1,5 @@
 export interface Project {
-  [id: string]: string;
+  id: string;
   projectName: string;
   projectDetails: string;
 }

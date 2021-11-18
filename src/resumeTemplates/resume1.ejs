@@ -39,17 +39,24 @@
   <body>
     <div style="margin-left: 15mm; margin-right: 15mm">
       <div class="address">
+        <% if (about.name) { %>
         <h1 class="headers"><%= about.name %></h1>
-        <div style="margin-bottom: 3px"><%= about.full_address %></div>
-        <div style="margin-bottom: 3px"><%= about.city_state_code %></div>
-        <div style="margin-bottom: 3px">Ph no. <%= about.ph_no %></div>
+        <% } %> <% if (about.fullAddress) { %>
+        <div style="margin-bottom: 3px"><%= about.fullAddress %></div>
+        <% } %> <% if (about.cityZip) { %>
+        <div style="margin-bottom: 3px"><%= about.cityZip %></div>
+        <% } %> <% if (about.phNo) { %>
+        <div style="margin-bottom: 3px">Ph no. <%= about.phNo %></div>
+        <% } %> <% if (about.emails.length>0) { %>
         <div style="margin-bottom: 3px">
           <% about.emails.forEach(single_email => { %> &nbsp;<%= single_email
           %>&nbsp; <% }) %>
         </div>
+        <% } %>
       </div>
 
       <!-- Education Area -->
+      <% if (educations.length>0) { %>
       <div class="block">
         <h2 class="headers">EDUCATION:</h2>
         <ul>
@@ -58,7 +65,7 @@
             <div style="font-size: 20px; font-weight: 700; margin-bottom: 5px">
               <%= educations[i].courseName %>
             </div>
-            <div style="font-size: 16px">
+            <div>
               <span>
                 <%= educations[i].organizationName %>, <%=
                 educations[i].courseResults %>
@@ -68,8 +75,10 @@
           <% } %>
         </ul>
       </div>
+      <% } %>
 
       <!-- Skills Area -->
+      <% if (skills.length>0) { %>
       <div class="block">
         <h2 class="headers">SKILLS:</h2>
         <div style="margin-top: 16px">
@@ -78,46 +87,52 @@
           <% }) %>
         </div>
       </div>
+      <% } %>
 
       <!-- Works Area -->
+      <% if (works.length>0) { %>
       <div class="block">
         <h2 class="headers">WORK EXPERIENCE:</h2>
-        <% for( let i = 0; i < work.length; i++ ) { %>
-        <h3><%= work[i].organizationName %></h3>
-        <ul>
-          <% work[i].aboutJob.forEach(eachAbout => { %>
-          <li>
-            <span><%= eachAbout %></span>
-          </li>
-          <% }) %>
-        </ul>
-        <% } %>
+        <% for( let i = 0; i < works.length; i++ ) { %>
+        <h3 style="margin-left: 8px; margin-bottom: 8px; margin-top: 8px">
+          <%= works[i].organizationName %>
+        </h3>
+        <% works[i].workDetails.forEach(eachAbout => { %>
+        <div style="margin-bottom: 4px; margin-left: 16px">
+          &#9679; <%= eachAbout %>
+        </div>
+        <% }) %> <% } %>
       </div>
+      <% } %>
 
       <!-- Projects Area -->
+      <% if (projects.length>0) { %>
       <div class="block">
         <h2 class="headers">PROJECTS:</h2>
-        <ul style="list-style-type: none">
-          <% for( let i = 0; i < projects.length; i++ ) { %>
-          <li>
-            <h3><%= projects[i].name %></h3>
-            <div style="font-size: 16px"><%= projects[i].details %></div>
-          </li>
-          <% } %>
-        </ul>
+        <% for( let i = 0; i < projects.length; i++ ) { %>
+        <h3 style="margin-left: 8px; margin-bottom: 8px; margin-top: 8px">
+          <%= projects[i].name %>
+        </h3>
+        <div style="margin-bottom: 4px; margin-left: 16px">
+          <%= projects[i].details %>
+        </div>
+        <% } %>
       </div>
+      <% } %>
 
       <!-- Other Skills and Activities Area -->
+      <% if (others.length>0) { %>
       <div class="block">
         <h2 class="headers">Other Skills & Activities:</h2>
         <ul>
           <% for( let i = 0; i < others.length; i++ ) { %>
           <li>
-            <div style="font-size: 16px"><%= others[i] %></div>
+            <div><%= others[i] %></div>
           </li>
           <% } %>
         </ul>
       </div>
+      <% } %>
     </div>
   </body>
 </html>

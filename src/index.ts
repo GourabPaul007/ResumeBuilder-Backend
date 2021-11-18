@@ -5,6 +5,7 @@ import cors from "cors";
 import puppeteer from "puppeteer";
 import { ICourse } from "./interfaces/Course";
 import { Project } from "./interfaces/Project";
+import { Work } from "./interfaces/Work";
 
 const app: Application = express();
 const PORT: Number = 5000;
@@ -28,33 +29,53 @@ const makePDF = async (templateString: string) => {
 app.post("/post", (req, res) => {
   console.log("req.body", req.body);
   const details = req.body;
-  // console.log(details);
+  console.log("details", details);
 
   // Getting the About block
   data.about = {
-    name: details.about.name,
-    full_address: details.about.address,
-    city_state_code: details.about.cityZip,
-    ph_no: details.about.phNo,
-    emails: details.about.emails || ["idk@pp.com"],
+    name: details.about.name || null,
+    fullAddress: details.about.address || null,
+    cityZip: details.about.cityZip || null,
+    phNo: details.about.phNo || null,
+    emails: details.about.emails || [],
   };
   // Getting the Educations block
-  data.educations = details.educations.map((eachEducation: ICourse) => {
-    return {
-      courseName: eachEducation.courseName,
-      nameOfOrganization: eachEducation.nameOfOrganization,
-      courseResults: eachEducation.courseResults,
-    };
-  });
+  data.educations =
+    details.educations[0].courseName.length > 0
+      ? details.educations.map((eachEducation: ICourse) => {
+          eachEducation.courseName;
+          return {
+            courseName: eachEducation.courseName,
+            nameOfOrganization: eachEducation.nameOfOrganization,
+            courseResults: eachEducation.courseResults,
+          };
+        })
+      : [];
   // Getting the Skills block
-  data.skills = details.skills;
+  data.skills = details.skills || [];
+
+  // Getting the Work block
+  data.works =
+    details.works.length > 0 && details.works[0].organizationName.length > 0
+      ? details.works.map((singleWork: Work) => {
+          return {
+            organizationName: singleWork.organizationName,
+            workDetails: singleWork.workDetails.split("\n"),
+          };
+        })
+      : [];
+
   // Getting the Projects Block
-  data.projects = details.projects.map((singleProject: Project) => {
-    return {
-      name: singleProject.projectName,
-      details: singleProject.projectDetails,
-    };
-  });
+  data.projects =
+    details.projects[0].projectName.length > 0
+      ? details.projects.map((singleProject: Project) => {
+          return {
+            name: singleProject.projectName,
+            details: singleProject.projectDetails,
+          };
+        })
+      : [];
+  data.others = details.others || [];
 });
 
 app.get("/", async (req, res) => {
@@ -64,7 +85,7 @@ app.get("/", async (req, res) => {
       about: data.about,
       educations: data.educations,
       skills: data.skills,
-      work: data.work,
+      works: data.works,
       projects: data.projects,
       others: data.others,
     }
