@@ -1,10 +1,12 @@
 {
   "about": {
     "name": "John Doe",
+    "profession": "Software Engineer",
     "fullAddress": "Saktigarh, Railgate Rd.",
     "cityZip": "Bangaon WB 743235",
-    "phNo": "9064040525",
-    "emails": ["gpaul@gmail.com", "paul@github.com"]
+    "phNo": "+91 9064040525",
+    "emails": ["gpaul@gmail.com", "paul@github.com"],
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Details....Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem."
   },
   "educations": [
     {
@@ -67,5 +69,6 @@
   "others": [
     "Fluent in English, Hindi, Bengali.",
     "Favourite Hobbies are building software & playing games."
-  ]
+  ],
+  "accentColor": "#e65100"
 }

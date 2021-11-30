@@ -1,5 +1,5 @@
-export interface ICourse {
+export interface Course {
   courseName: string;
-  nameOfOrganization: string;
+  organizationName: string;
   courseResults: string;
 }

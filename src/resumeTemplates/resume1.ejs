@@ -16,10 +16,10 @@
       }
       .singleSkill {
         display: inline-block;
-        background-color: #ff4483;
         padding: 8px 16px;
         margin: 4px;
         border-radius: 20px;
+        background-color: <%=accentColor || " #ff0055 " %>;
       }
       .block {
         /* margin-top: 10px; */
@@ -27,7 +27,7 @@
       }
       .headers {
         margin-bottom: 8px;
-        color: #ff0055;
+        color: <%=accentColor || "#ff0055" %>;
       }
     </style>
 
@@ -38,6 +38,7 @@
   </head>
   <body>
     <div style="margin-left: 15mm; margin-right: 15mm">
+      <!-- About Section -->
       <div class="address">
         <% if (about.name) { %>
         <h1 class="headers"><%= about.name %></h1>

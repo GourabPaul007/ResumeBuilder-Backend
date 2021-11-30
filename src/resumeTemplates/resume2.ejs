@@ -1,76 +1,204 @@
-<div class="main_body">
-  <div style="margin-left: 10mm; margin-right: 10mm">
-    <div class="address">
-      <h1><%= name %></h1>
-      <div style="margin-bottom: 5px"><%= address.full_address %></div>
-      <div style="margin-bottom: 5px"><%= address.city_state_code %></div>
-      <div style="margin-bottom: 5px">Ph no. <%= address.ph_no %></div>
-      <div style="margin-bottom: 5px">
-        <% address.emails.forEach(single_email => { %> &nbsp;<%= single_email %>&nbsp; <% }) %>
-      </div>
-    </div>
-
-    <div class="block">
-      <h2>EDUCATION:</h2>
-      <ul>
-        <% for( let i = 0; i < educations.length; i++ ) { %>
-        <li>
-          <h3><%= educations[i].name %></h3>
-          <h4><%= educations[i].about %>,&nbsp;</h4>
-          <h4><%= educations[i].result %></h4>
-        </li>
-        <% } %>
-      </ul>
-    </div>
-
-    <div class="block">
-      <h2>SKILLS:</h2>
-      <% skills.forEach(eachSkill => { %>
-      <span class="singleSkill"><%= eachSkill %></span>
-      <% }) %>
-    </div>
-
-    <div class="block">
-      <h2>WORK EXPERIENCE:</h2>
-      <ul>
-        <% for( let i = 0; i < work.length; i++ ) { %>
-        <li>
-          <span> <%= work[i] %> </span>
-        </li>
-        <% } %>
-      </ul>
-    </div>
-
-    <div class="block">
-      <h2>PROJECTS:</h2>
-      <ul style="list-style-type: none">
-        <% for( let i = 0; i < projects.length; i++ ) { %>
-        <li>
-          <h3><%= projects[i].name %></h3>
-          <div><%= projects[i].details %></div>
-        </li>
-        <% } %>
-      </ul>
-    </div>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <style type="text/css">
-      .main_body {
+      body {
         font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
         /* height:297mm; */
         /* width:210mm; */
-        margin-left: auto;
-        margin-right: auto;
+        padding: 0;
+        margin: 0;
       }
       .address {
         display: grid;
-        place-items: center;
+        margin-top: 12px;
       }
       .singleSkill {
-        background-color: #ff4483;
+        display: inline-block;
         padding: 8px 16px;
-        margin: 0px 4px;
-        border-radius: 20px;
+        margin: 4px;
+        border-radius: 6px;
+        background-color: <%=accentColor || " #ff0055 " %>;
+      }
+      .block {
+        /* margin-top: 10px; */
+        margin-bottom: 32px;
+      }
+      .headers {
+        margin-bottom: 8px;
+        color: <%=accentColor || "#ff0055" %>;
       }
     </style>
-  </div>
-</div>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./resume1.css"> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        margin-bottom: 12px;
+        padding-left: 36px;
+        padding-right: 36px;
+        padding-top: 12px;
+        padding-bottom: 32px;
+        background-color: <%=accentColor%>;
+      "
+    >
+      <h1 style="font-size: 32px; margin-bottom: 8px"><%= about.name %></h1>
+      <div><%= about.about %></div>
+    </div>
+    <div style="margin-left: 10mm; margin-right: 10mm">
+      <div style="display: flex">
+        <!-- Left Side -->
+        <div style="width: 25%">
+          <div class="address">
+            <!-- emails -->
+            <% if (about.emails.length>0) { %>
+            <div style="margin-bottom: 6px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="<%= accentColor %>"
+                class="bi bi-envelope-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
+                />
+              </svg>
+              <% about.emails.forEach(single_email => { %>
+              <div style="margin-bottom: 3px"><%= single_email %></div>
+              <% }) %>
+            </div>
+            <% } %>
+            <!-- Address Section -->
+            <% if (about.fullAddress) { %>
+            <div style="margin-bottom: 3px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="<%= accentColor %>"
+                class="bi bi-geo-alt-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                />
+              </svg>
+            </div>
+
+            <div style="margin-bottom: 3px"><%= about.fullAddress %></div>
+            <% } %> <% if (about.cityZip) { %>
+            <div style="margin-bottom: 6px"><%= about.cityZip %></div>
+            <% } %> <% if (about.phNo) { %>
+            <div style="margin-bottom: 3px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="<%= accentColor %>"
+                class="bi bi-phone-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"
+                />
+              </svg>
+            </div>
+            <div style="margin-bottom: 3px"><%= about.phNo %></div>
+            <% } %>
+
+            <!-- Skills Area -->
+            <% if (skills.length>0) { %>
+            <div class="block">
+              <h2 class="headers">SKILLS:</h2>
+              <div style="margin-top: 16px">
+                <% skills.forEach(eachSkill => { %>
+                <div class="singleSkill"><%= eachSkill %></div>
+                <br />
+                <% }) %>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+        <!-- Right Side -->
+        <div style="width: 75%">
+          <!-- Education Area -->
+          <% if (educations.length>0) { %>
+          <div class="block">
+            <h2 class="headers">EDUCATION:</h2>
+            <ul>
+              <% for( let i = 0; i < educations.length; i++ ) { %>
+              <li style="margin-bottom: 14px">
+                <div
+                  style="font-size: 20px; font-weight: 700; margin-bottom: 5px"
+                >
+                  <%= educations[i].courseName %>
+                </div>
+                <div>
+                  <span>
+                    <%= educations[i].organizationName %>, <%=
+                    educations[i].courseResults %>
+                  </span>
+                </div>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+          <% } %>
+
+          <!-- Works Area -->
+          <% if (works.length>0) { %>
+          <div class="block" style="margin-top: 0px">
+            <h2 class="headers">WORK EXPERIENCE:</h2>
+            <% for( let i = 0; i < works.length; i++ ) { %>
+            <h3 style="margin-left: 8px; margin-bottom: 8px; margin-top: 8px">
+              <%= works[i].organizationName %>
+            </h3>
+            <% works[i].workDetails.forEach(eachAbout => { %>
+            <div style="margin-bottom: 4px; margin-left: 16px">
+              &#9679; <%= eachAbout %>
+            </div>
+            <% }) %> <% } %>
+          </div>
+          <% } %>
+
+          <!-- Projects Area -->
+          <% if (projects.length>0) { %>
+          <div class="block">
+            <h2 class="headers">PROJECTS:</h2>
+            <% for( let i = 0; i < projects.length; i++ ) { %>
+            <h3 style="margin-left: 8px; margin-bottom: 8px; margin-top: 8px">
+              <%= projects[i].name %>
+            </h3>
+            <div style="margin-bottom: 4px; margin-left: 16px">
+              <%= projects[i].details %>
+            </div>
+            <% } %>
+          </div>
+          <% } %>
+
+          <!-- Other Skills and Activities Area -->
+          <% if (others.length>0) { %>
+          <div class="block">
+            <h2 class="headers">Other Skills & Activities:</h2>
+            <ul>
+              <% for( let i = 0; i < others.length; i++ ) { %>
+              <li>
+                <div><%= others[i] %></div>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
