@@ -3,6 +3,7 @@ import { Course } from "../interfaces/Course";
 import { Project } from "../interfaces/Project";
 import { Work } from "../interfaces/Work";
 import { Details } from "../interfaces/Details";
+import { checkHyperLink } from "./checkHyperlink";
 
 export const setResumeData = (details: Details) => {
   // Getting the About block
@@ -45,6 +46,11 @@ export const setResumeData = (details: Details) => {
   data.projects =
     details.projects[0].projectName.length > 0
       ? details.projects.map((singleProject: Project) => {
+          const str: string =
+            "User Input. Github: FrontEnd(https://github.com/GourabPaul007/ResumeBuilder-Frontend) Backend(https://github.com/GourabPaul007/ResumeBuilder-Backend) Used Technologies:";
+
+          const newstr: string = checkHyperLink(str);
+
           return {
             name: singleProject.projectName,
             details: singleProject.projectDetails,

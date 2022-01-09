@@ -1,242 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
-    <title>Resume</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-    />
 
-    <style type="text/css">
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        /* height:297mm; */
-        /* width:210mm; */
-        margin: 20px;
-        color: #333;
-      }
-      .address {
-        display: grid;
-      }
-      .singleSkill {
-        display: inline-block;
-        padding: 6px 12px;
-        margin: 4px;
-        border-radius: 6px;
-        color: <%= isDark(accentColor)? "#fff" : "#000" %>;
-        background-color: <%=accentColor || " #ff0055 " %>;
-      }
-      .block {
-        margin-top: 12px;
-        margin-bottom: 12px;
-      }
-      .headers {
-        text-transform: none;
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: <%=accentColor || "#ff0055" %>;
-      }
-      .subHeaders {
-        text-transform: none;
-        font-weight: 600;
-        margin-left: 8px;
-        margin-bottom: 8px;
-        margin-top: 8px;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <title>Resume</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 
-  <body>
-    <div>
-      <div style="display: flex">
-        <div style="width: 60%; padding-right: 4px">
-          <h1
-            style="font-weight: 600; margin-bottom: 0px; display: inline-block"
-          >
+  <style type="text/css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      /* height:297mm; */
+      /* width:210mm; */
+      margin: 28px;
+      color: #333;
+    }
+
+    .address {
+      display: grid;
+    }
+
+    .singleSkill {
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 4px;
+      border-radius: 6px;
+      color: <%=isDark(accentColor)? "#fff": "#000"%>;
+      background-color: <%=accentColor || " #ff0055 "%>;
+    }
+
+    .block {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    .headers {
+      text-transform: none;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: <%=accentColor || "#ff0055"%>;
+    }
+
+    .subHeaders {
+      text-transform: none;
+      font-weight: 600;
+      margin-left: 8px;
+      margin-bottom: 8px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div style="display: flex">
+      <div style="width: 60%; padding-right: 4px">
+        <div style="margin-bottom: 8px">
+          <h1 style="
+                font-weight: 600;
+                margin-bottom: 0px;
+                display: inline-block;
+              ">
             <%= about.name %>
           </h1>
           <p style="display: inline-block">
             &nbsp;&nbsp;<%= about.profession %>
           </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus,
-            quos consequatur dolore itaque rem dolor maiores qui quidem fugiat
-            voluptate quisquam, quod atque similique! Dolores excepturi cum
-            temporibus optio reiciendis.
-          </p>
         </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus,
+          quos consequatur dolore itaque rem dolor maiores qui quidem fugiat
+          voluptate quisquam, quod atque similique! Dolores excepturi cum
+          temporibus optio reiciendis.
+        </p>
+      </div>
 
-        <!--  -->
-        <!-- Contact Section -->
-        <!--  -->
-        <div
-          class="ps-3"
-          style="
+      <!--  -->
+      <!-- Contact Section -->
+      <!--  -->
+      <div class="ps-3" style="
             margin-left: 10px;
-            margin-top: 56px;
+            margin-top: 64px;
             margin-bottom: 6px;
             border-left: 3px solid <%=accentColor%>;
-          "
-        >
-          <div style="display: flex; margin-bottom: 8px">
-            <i class="bi bi-geo-alt-fill text-danger"></i>
-            <div>
-              <div class="ms-2"><%= about.fullAddress %></div>
-              <div class="ms-2"><%= about.cityZip %></div>
+          ">
+        <div style="display: flex; margin-bottom: 8px">
+          <i class="bi bi-geo-alt-fill text-danger"></i>
+          <div>
+            <div class="ms-2">
+              <%= about.fullAddress %>
+            </div>
+            <div class="ms-2">
+              <%= about.cityZip %>
             </div>
           </div>
+        </div>
 
-          <div style="display: flex; margin-bottom: 8px">
-            <i class="bi bi-envelope-fill text-primary"></i>
-            <!-- emails -->
-            <% if (about.emails.length>0) { %>
+        <div style="display: flex; margin-bottom: 8px">
+          <i class="bi bi-envelope-fill text-primary"></i>
+          <!-- emails -->
+          <% if (about.emails.length>0) { %>
             <div style="margin-bottom: 4px; margin-left: 8px">
-              <% about.emails.forEach(single_email => { %>
-              <div style="margin-bottom: 0px"><%= single_email %></div>
-              <% }) %>
+              <% about.emails.forEach(single_email=> { %>
+                <div style="margin-bottom: 0px">
+                  <a href="<%= single_email.link %>" style="text-decoration: none;">
+                    <%= single_email.body %>
+                  </a>
+                </div>
+                <% }) %>
             </div>
             <% } %>
-          </div>
-          <div>
-            <i class="bi bi-telephone-fill text-success"></i>
-            <a href="#" class="ms-2 text-decoration-none text-dark">
-              <%= about.phNo %>
-            </a>
-          </div>
+        </div>
+        <div>
+          <i class="bi bi-telephone-fill text-success"></i>
+          <a href="#" class="ms-2 text-decoration-none text-dark">
+            <%= about.phNo %>
+          </a>
         </div>
       </div>
     </div>
+  </div>
 
-    <div style="display: flex">
-      <!-- Left Area -->
-      <div style="width: 60%; padding-right: 6px">
-        <div>
-          <!-- Works Area -->
-          <% if (works.length>0) { %>
+  <div style="display: flex">
+    <!-- Left Area -->
+    <div style="width: 60%; padding-right: 12px">
+      <div>
+        <!-- Works Area -->
+        <% if (works.length>0) { %>
           <div class="block">
             <h2 class="headers">Work Experience</h2>
-            <% for( let i = 0; i < works.length; i++ ) { %>
-            <h4 class="subHeaders"><%= works[i].organizationName %></h4>
-            <% works[i].workDetails.forEach(eachAbout => { %>
-            <p style="margin-bottom: 4px; margin-left: 8px">
-              &#9679; <%= eachAbout %>
-            </p>
-            <% }) %> <% } %>
+            <% for( let i=0; i < works.length; i++ ) { %>
+              <h4 class="subHeaders">
+                <%= works[i].organizationName %>
+              </h4>
+              <% works[i].workDetails.forEach(eachAbout=> { %>
+                <p style="margin-bottom: 4px; margin-left: 8px">
+                  &#9679; <%= eachAbout %>
+                </p>
+                <% }) %>
+                  <% } %>
           </div>
           <% } %>
 
-          <!-- Projects Area -->
-          <% if (projects.length>0) { %>
-          <div class="block">
-            <h2 class="headers">Projects</h2>
-            <% for( let i = 0; i < projects.length; i++ ) { %>
-            <h4 class="subHeaders"><%= projects[i].name %></h4>
-            <p style="margin-bottom: 4px; margin-left: 8px">
-              <%= projects[i].details %>
-            </p>
-            <% } %>
-          </div>
-          <% } %>
-        </div>
+            <!-- Projects Area -->
+            <% if (projects.length>0) { %>
+              <div class="block">
+                <h2 class="headers">Projects</h2>
+                <% for( let i=0; i < projects.length; i++ ) { %>
+                  <h4 class="subHeaders">
+                    <%= projects[i].name %>
+                  </h4>
+                  <% projects[i].details.forEach(eachAbout=> { %>
+                    <p style="margin-bottom: 4px; margin-left: 16px">
+                      <%- checkHyperlink(eachAbout) %> 
+                    </p>
+                    <% }) %>
+                  <% } %>
+              </div>
+              <% } %>
       </div>
+    </div>
 
-      <!-- Second Column -->
-      <div style="width: 40%; margin-left: 12px">
-        <!-- Skills Block -->
-        <% if (skills.length>0) { %>
+    <!-- Second Column -->
+    <div style="width: 40%; margin-left: 20px">
+      <!-- Skills Block -->
+      <% if (skills.length>0) { %>
         <div class="block">
           <h2 class="headers">Skills</h2>
           <div style="margin-top: 8px">
-            <% skills.forEach(eachSkill => { %>
-            <div class="singleSkill"><%= eachSkill %></div>
-            <% }) %>
+            <% skills.forEach(eachSkill=> { %>
+              <div class="singleSkill">
+                <%= eachSkill %>
+              </div>
+              <% }) %>
           </div>
         </div>
         <% } %>
 
-        <!-- Education Block -->
-        <% if (educations.length>0) { %>
-        <div style="margin-top: 24px">
-          <h2 class="headers">Education</h2>
-          <% for( let i = 0; i < educations.length; i++ ) { %>
-          <div class="d-flex align-items-center justify-content-start mb-0">
-            <div class="d-flex align-items-center justify-content-center">
-              <i class="m-0 p-0 bi bi-building"></i>
-            </div>
-            <div
-              class="
-                d-flex
-                flex-column
-                align-items-start
-                justify-content-center
-                ms-3
-              "
-            >
-              <p class="fw-bold text-secondary mb-0">
-                <%= educations[i].organizationName %>
-              </p>
-              <p class="text-muted">
-                <%= educations[i].courseName %>, <%=educations[i].courseResults
-                %>
-              </p>
-            </div>
-          </div>
-          <% } %>
-        </div>
-        <% } %>
-
-        <!-- Others Section -->
-        <% if (others.length>0) { %>
-        <div>
-          <div style="margin-top: 24px">
-            <h2 class="headers">Other Skills & Activities</h2>
-            <div style="margin-bottom: 12px">
-              <!-- Other Skills and Activities Area -->
-
-              <ul>
-                <% for( let i = 0; i < others.length; i++ ) { %>
-                <li>
-                  <div><%= others[i] %></div>
-                </li>
+          <!-- Education Block -->
+          <% if (educations.length>0) { %>
+            <div style="margin-top: 24px">
+              <h2 class="headers">Education</h2>
+              <% for( let i=0; i < educations.length; i++ ) { %>
+                <div class="d-flex align-items-center justify-content-start mb-0">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i class="m-0 p-0 bi bi-building"></i>
+                  </div>
+                  <div class="d-flex flex-column align-items-start justify-content-center ms-3">
+                    <p class="fw-bold text-secondary mb-0">
+                      <%= educations[i].organizationName %>
+                    </p>
+                    <p class="text-muted">
+                      <%= educations[i].courseName %>, <%=educations[i].courseResults %>
+                    </p>
+                  </div>
+                </div>
                 <% } %>
-              </ul>
             </div>
-          </div>
-        </div>
-        <% } %>
-        <div></div>
-        <div class="card border-0 rounded shadow-sm p-3">
+            <% } %>
+
+              <!-- Others Section -->
+              <% if (others.length>0) { %>
+                <div>
+                  <div style="margin-top: 24px">
+                    <h2 class="headers">Other Skills & Activities</h2>
+                    <div style="margin-bottom: 12px">
+                      <!-- Other Skills and Activities Area -->
+
+                      <ul>
+                        <% for( let i=0; i < others.length; i++ ) { %>
+                          <li>
+                            <div>
+                              <%= others[i] %>
+                            </div>
+                          </li>
+                          <% } %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+                  <div></div>
+
+
+                  <!-- <div class="card border-0 rounded shadow-sm p-3">
           <div>
             <h2>Languages</h2>
             <div
-              class="
-                d-flex
-                flex-column
-                align-items-start
-                justify-content-center
-                mb-3
-              "
+              class="d-flex flex-column align-items-start justify-content-center mb-3"
             >
               <p class="text-muted mb-1">
                 <span class="fw-bold text-secondary">English: </span>Proficient
               </p>
               <div
-                class="
-                  d-flex
-                  align-items-center
-                  justify-content-center
-                  text-warning
-                "
+                class="d-flex align-items-center justify-content-center text-warning"
               >
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill ms-1"></i>
@@ -248,11 +249,10 @@
           </div>
         </div>
       </div>
-    </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    </div> -->
+                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+                    crossorigin="anonymous"></script>
+</body>
+
 </html>

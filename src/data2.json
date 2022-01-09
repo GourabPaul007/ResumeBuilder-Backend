@@ -1,0 +1,69 @@
+{
+  "about": {
+    "name": "Gourab Paul",
+    "profession": "Software Engineer",
+    "fullAddress": "Saktigarh, Railgate Rd.",
+    "cityZip": "Bangaon WB 743235",
+    "phNo": "+91 9064040525",
+    "emails": [
+      {
+        "link": "mailto:gourabpaul900@gmail.com",
+        "body": "gourabpaul900@gmail.com"
+      },
+      {
+        "link": "https://github.com/GourabPaul007",
+        "body": "github.com/GourabPaul007"
+      }
+    ],
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Details....Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem."
+  },
+  "educations": [
+    {
+      "courseName": "Science Course",
+      "organizationName": "Bangaon Higher Secondary School",
+      "courseResults": "75%"
+    },
+    {
+      "courseName": "Bachelor of Science in Computer Science",
+      "organizationName": "Dinabandhu Mahabidyalaya",
+      "courseResults": "Cumulative CGPA 9.00"
+    }
+  ],
+  "skills": [
+    "HTML/ CSS/ JavaScript",
+    "ReactJS",
+    "TypeScript",
+    "NodeJS",
+    "ExpressJS",
+    "MongoDB",
+    "NginX"
+  ],
+  "works": [],
+  "projects": [
+    {
+      "name": "Resume Builder",
+      "details": [
+        "Built a Full-Stack Application to generate pdf files from many of the choosen templates according to Dynamic User Input. Github: FrontEnd(https://github.com/GourabPaul007/ResumeBuilder-Frontend), Backend(https://github.com/GourabPaul007/ResumeBuilder-Backend). Used Technologies: ",
+        "Frontend: ReactJS, TS, Material UI, React-Redux.",
+        "Backend: NodeJS, ExpressJS, EJS, TypeScript."
+      ]
+    },
+    {
+      "name": "Project 2",
+      "details": [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Details....Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate rem."
+      ]
+    },
+    {
+      "name": "Project 3",
+      "details": [
+        "Laudantium pariatur error cupiditate nesciunt dolorem assumenda doloribus itaque a."
+      ]
+    }
+  ],
+  "others": [
+    "Fluent in English, Hindi, Bengali.",
+    "Favourite Hobbies are building software & playing games."
+  ],
+  "accentColor": "#e65100"
+}

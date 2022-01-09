@@ -1,19 +1,21 @@
 import express from "express";
 import ejs from "ejs";
 import data from "../data.json";
+import data2 from "../data2.json";
 import { setResumeData } from "../Helpers/updateData";
 import { makePDF } from "../Helpers/makePDF";
 import path from "path";
 import { isDark } from "../Helpers/checkColor";
+import { checkHyperLink } from "../Helpers/checkHyperlink";
 
 const router = express.Router();
 
-let resumeTemplate: string = "1";
+let resumeTemplateNo: string = "3";
 
 router.post("/post-data", (req, res) => {
   const details = req.body;
   console.log("details", details);
-  resumeTemplate = details.template;
+  resumeTemplateNo = details.template;
   setResumeData(details);
 });
 
@@ -28,17 +30,18 @@ router.get("/get-pdf", async (req, res) => {
       __dirname,
       "..",
       "resumeTemplates",
-      `resume${resumeTemplate}.ejs`
+      `resume${resumeTemplateNo}.ejs`
     ),
     {
       isDark: isDark,
-      about: data.about,
-      educations: data.educations,
-      skills: data.skills,
-      works: data.works,
-      projects: data.projects,
-      others: data.others,
-      accentColor: data.accentColor,
+      checkHyperlink: checkHyperLink,
+      about: data2.about,
+      educations: data2.educations,
+      skills: data2.skills,
+      works: data2.works,
+      projects: data2.projects,
+      others: data2.others,
+      accentColor: data2.accentColor,
     }
   );
   const pdf = await makePDF(templateString);
