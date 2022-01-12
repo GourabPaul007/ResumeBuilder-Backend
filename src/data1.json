@@ -1,0 +1,33 @@
+{
+  "about": {
+    "name": "",
+    "profession": "",
+    "address": "",
+    "cityZip": "",
+    "phNo": "",
+    "emails": [""],
+    "about": ""
+  },
+  "educations": [
+    {
+      "courseName": "",
+      "organizationName": "",
+      "courseResults": ""
+    }
+  ],
+  "skills": [""],
+  "works": [
+    {
+      "organizationName": "",
+      "workDetails": [""]
+    }
+  ],
+  "projects": [
+    {
+      "name": "",
+      "details": [""]
+    }
+  ],
+  "others": [""],
+  "accentColor": "#123456"
+}

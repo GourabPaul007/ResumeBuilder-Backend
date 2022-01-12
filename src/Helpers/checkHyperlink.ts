@@ -1,4 +1,4 @@
-export const checkHyperLink = (str: string): string => {
+export const checkHyperlink = (str: string): string => {
   //new String to be returned
   let newString: string = "";
 

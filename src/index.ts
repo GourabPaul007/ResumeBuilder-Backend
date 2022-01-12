@@ -6,7 +6,7 @@ const PORT: Number = 5000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
 import resumeRoute from "./routes/resumeRoute";
 app.use("/api/resume", resumeRoute);

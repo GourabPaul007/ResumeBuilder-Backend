@@ -26,7 +26,7 @@
 
     .singleSkill {
       display: inline-block;
-      padding: 6px 12px;
+      padding: 4px 8px;
       margin: 4px;
       border-radius: 6px;
       color: <%=isDark(accentColor)? "#fff": "#000"%>;
@@ -56,35 +56,90 @@
 </head>
 
 <body>
-  <div>
-    <div style="display: flex">
-      <div style="width: 60%; padding-right: 4px">
-        <div style="margin-bottom: 8px">
-          <h1 style="
-                font-weight: 600;
-                margin-bottom: 0px;
-                display: inline-block;
-              ">
-            <%= about.name %>
-          </h1>
-          <p style="display: inline-block">
-            &nbsp;&nbsp;<%= about.profession %>
+
+  <div style="margin-bottom: 8px">
+    <h1 style="
+          font-weight: 600;
+          margin-bottom: 0px;
+          display: inline-block;
+        ">
+      <%= about.name %>
+    </h1>
+    <p style="display: inline-block">
+      &nbsp;&nbsp;<%= about.profession %>
+    </p>
+  </div>
+
+
+
+  <div style="display: flex">
+    <!-- Left Area -->
+    <div style="width: 60%; padding-right: 12px">
+
+      <!--  -->
+      <!-- About Yourself -->
+      <!--  -->
+      <div style="display: flex">
+        <div style="padding-right: 4px">
+          <p>
+            <%= about.about %>
           </p>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus,
-          quos consequatur dolore itaque rem dolor maiores qui quidem fugiat
-          voluptate quisquam, quod atque similique! Dolores excepturi cum
-          temporibus optio reiciendis.
-        </p>
       </div>
+
+      <div>
+        <!-- Works Area -->
+        <% if (works.length>0) { %>
+          <div class="block">
+            <h2 class="headers">Work Experience</h2>
+            <% for( let i=0; i < works.length; i++ ) { %>
+              <% if (works[i].organizationName.length>0 && works[i].workDetails.length>0) { %>
+                <h4 class="subHeaders">
+                  <%= works[i].organizationName %>
+                </h4>
+                <% works[i].workDetails.forEach(eachAbout=> { %>
+                  <p style="margin-bottom: 4px; margin-left: 8px">
+                    &#9679; <%= eachAbout %>
+                  </p>
+                <% }) %>
+              <% } %>
+            <% } %>
+          </div>
+        <% } %>
+
+        <!-- Projects Area -->
+        <% if (projects.length>0) { %>
+          <div class="block">
+            <h2 class="headers">Projects</h2>
+            <% for( let i=0; i < projects.length; i++ ) { %>
+              <!-- If the project isnt empty strings/null -->
+              <% if (projects[i].name.length>0 && projects[i].details.length>0) { %>
+                <!-- Project Name -->
+                <h4 class="subHeaders">
+                  <%= projects[i].name %>
+                </h4>
+                <!-- Project Details -->
+                <% projects[i].details.forEach(eachAbout=> { %>
+                  <p style="margin-bottom: 4px; margin-left: 16px">
+                    <%- checkHyperlink(eachAbout) %>
+                  </p>
+                <% }) %>
+              <% } %>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div style="width: 40%; margin-left: 20px">
 
       <!--  -->
       <!-- Contact Section -->
       <!--  -->
       <div class="ps-3" style="
             margin-left: 10px;
-            margin-top: 64px;
+            margin-top: 0px;
             margin-bottom: 6px;
             border-left: 3px solid <%=accentColor%>;
           ">
@@ -92,7 +147,7 @@
           <i class="bi bi-geo-alt-fill text-danger"></i>
           <div>
             <div class="ms-2">
-              <%= about.fullAddress %>
+              <%= about.address %>
             </div>
             <div class="ms-2">
               <%= about.cityZip %>
@@ -107,9 +162,7 @@
             <div style="margin-bottom: 4px; margin-left: 8px">
               <% about.emails.forEach(single_email=> { %>
                 <div style="margin-bottom: 0px">
-                  <a href="<%= single_email.link %>" style="text-decoration: none;">
-                    <%= single_email.body %>
-                  </a>
+                  <%- checkHyperlink(single_email) %>
                 </div>
                 <% }) %>
             </div>
@@ -122,56 +175,13 @@
           </a>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div style="display: flex">
-    <!-- Left Area -->
-    <div style="width: 60%; padding-right: 12px">
-      <div>
-        <!-- Works Area -->
-        <% if (works.length>0) { %>
-          <div class="block">
-            <h2 class="headers">Work Experience</h2>
-            <% for( let i=0; i < works.length; i++ ) { %>
-              <h4 class="subHeaders">
-                <%= works[i].organizationName %>
-              </h4>
-              <% works[i].workDetails.forEach(eachAbout=> { %>
-                <p style="margin-bottom: 4px; margin-left: 8px">
-                  &#9679; <%= eachAbout %>
-                </p>
-                <% }) %>
-                  <% } %>
-          </div>
-          <% } %>
 
-            <!-- Projects Area -->
-            <% if (projects.length>0) { %>
-              <div class="block">
-                <h2 class="headers">Projects</h2>
-                <% for( let i=0; i < projects.length; i++ ) { %>
-                  <h4 class="subHeaders">
-                    <%= projects[i].name %>
-                  </h4>
-                  <% projects[i].details.forEach(eachAbout=> { %>
-                    <p style="margin-bottom: 4px; margin-left: 16px">
-                      <%- checkHyperlink(eachAbout) %> 
-                    </p>
-                    <% }) %>
-                  <% } %>
-              </div>
-              <% } %>
-      </div>
-    </div>
-
-    <!-- Second Column -->
-    <div style="width: 40%; margin-left: 20px">
       <!-- Skills Block -->
       <% if (skills.length>0) { %>
         <div class="block">
           <h2 class="headers">Skills</h2>
-          <div style="margin-top: 8px">
+          <div style="margin-top: 8px;padding-left: 8px;">
             <% skills.forEach(eachSkill=> { %>
               <div class="singleSkill">
                 <%= eachSkill %>

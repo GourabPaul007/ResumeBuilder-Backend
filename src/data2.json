@@ -2,7 +2,7 @@
   "about": {
     "name": "Gourab Paul",
     "profession": "Software Engineer",
-    "fullAddress": "Saktigarh, Railgate Rd.",
+    "address": "Saktigarh, Railgate Rd.",
     "cityZip": "Bangaon WB 743235",
     "phNo": "+91 9064040525",
     "emails": [
@@ -43,7 +43,8 @@
     {
       "name": "Resume Builder",
       "details": [
-        "Built a Full-Stack Application to generate pdf files from many of the choosen templates according to Dynamic User Input. Github: FrontEnd(https://github.com/GourabPaul007/ResumeBuilder-Frontend), Backend(https://github.com/GourabPaul007/ResumeBuilder-Backend). Used Technologies: ",
+        "Built a Full-Stack Application to generate pdf files from many of the choosen templates according to Dynamic User Input. Github: FrontEnd(https://github.com/GourabPaul007/ResumeBuilder-Frontend), Backend(https://github.com/GourabPaul007/ResumeBuilder-Backend).",
+        "Used Technologies: ",
         "Frontend: ReactJS, TS, Material UI, React-Redux.",
         "Backend: NodeJS, ExpressJS, EJS, TypeScript."
       ]

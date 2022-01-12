@@ -1,56 +1,57 @@
 import express from "express";
-import ejs from "ejs";
-import data from "../data.json";
-import data2 from "../data2.json";
-import { setResumeData } from "../Helpers/updateData";
-import { makePDF } from "../Helpers/makePDF";
-import path from "path";
-import { isDark } from "../Helpers/checkColor";
-import { checkHyperLink } from "../Helpers/checkHyperlink";
+import { ResumeService } from "../Services/resumeService";
 
 const router = express.Router();
 
 let resumeTemplateNo: string = "3";
 
-router.post("/post-data", (req, res) => {
+router.post("/post-data", express.json(), (req, res) => {
   const details = req.body;
-  console.log("details", details);
+  // console.log("details", details);
+  console.log(details.works[0].workDetails.split("\n"));
   resumeTemplateNo = details.template;
-  setResumeData(details);
+  new ResumeService(resumeTemplateNo).setResumeData(details, details.resumeId);
+  res.status(200).send({ message: "data received" });
 });
 
-// router.post("/post-img", (req, res) => {
-//   console.log("Server Image", req.body);
-//   res.status(200).send(req.body);
-// });
-
-router.get("/get-pdf", async (req, res) => {
-  const templateString = await ejs.renderFile(
-    path.join(
-      __dirname,
-      "..",
-      "resumeTemplates",
-      `resume${resumeTemplateNo}.ejs`
-    ),
-    {
-      isDark: isDark,
-      checkHyperlink: checkHyperLink,
-      about: data2.about,
-      educations: data2.educations,
-      skills: data2.skills,
-      works: data2.works,
-      projects: data2.projects,
-      others: data2.others,
-      accentColor: data2.accentColor,
-    }
-  );
-  const pdf = await makePDF(templateString);
-  res.header("Content-type", "application/pdf");
-  res.send(pdf);
-
-  //IMPORTANT: IF you want ot save the file, use this =>
-  // savePDF(templateString);
-  // res.download('./file.pdf');
+router.get("/get-pdf/:id", async (req, res) => {
+  const { id } = req.params;
+  const pdf = await new ResumeService(resumeTemplateNo).renderPDF(id);
+  if (pdf == undefined) {
+    res.header("Content-type", "application/json");
+    res.send({
+      mmessage:
+        "sorry, due to save cost on server we have to delete stale pdfs. please fill the form again.",
+    });
+  } else {
+    res.header("Content-type", "application/pdf");
+    res.send(pdf);
+  }
 });
 
 export default router;
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// IDK WHY I WANTED TO TRY WORKER THREADS
+// if (isMainThread) {
+//   const worker = new Worker(__dirname + __resumeServiceWorkerFile, {
+//     workerData: { path: __dirname + "../Services/resumeService.ts" },
+//   });
+
+//   worker.on("message", (pdf) => {
+//     res.header("Content-type", "application/pdf");
+//     res.send(pdf);
+//   });
+//   worker.on("error", (e: Error) => {
+//     console.error(e);
+//   });
+//   worker.on("exit", (code) => {
+//     if (code !== 0)
+//       // reject(new Error(`Worker stopped with exit code ${code}`));
+//       console.log(`Worker stopped with exit code ${code}`);
+//   });
+// }
+// function reject(arg0: Error) {
+//   throw new Error("Function not implemented.");
+// }
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

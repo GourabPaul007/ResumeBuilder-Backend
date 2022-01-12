@@ -1,5 +1,5 @@
 export interface Work {
-  id: string;
+  // id: string;
   organizationName: string;
   workDetails: string;
 }

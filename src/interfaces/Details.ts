@@ -6,9 +6,9 @@ import { About } from "./About";
 export interface Details {
   about: About;
   educations: Course[];
-  skills: [""];
+  skills: string[];
   works: Work[];
   projects: Project[];
-  others: [""];
-  accentColor: "";
+  others: string[];
+  accentColor: string;
 }
