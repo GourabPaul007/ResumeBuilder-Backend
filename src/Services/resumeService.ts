@@ -16,7 +16,7 @@ import {
   deleteResumeById,
   findResumeById,
   resumes,
-} from "../db/resumeDB";
+} from "../repositories/resumeRepository";
 import { ResumeBuildData } from "../interfaces/ResumeBuildData";
 
 export class ResumeService {
