@@ -7,8 +7,6 @@ let resumeTemplateNo: string = "3";
 
 router.post("/post-data", express.json(), (req, res) => {
   const details = req.body;
-  // console.log("details", details);
-  console.log(details.works[0].workDetails.split("\n"));
   resumeTemplateNo = details.template;
   new ResumeService(resumeTemplateNo).setResumeData(details, details.resumeId);
   res.status(200).send({ message: "data received" });
@@ -17,16 +15,18 @@ router.post("/post-data", express.json(), (req, res) => {
 router.get("/get-pdf/:id", async (req, res) => {
   const { id } = req.params;
   const pdf = await new ResumeService(resumeTemplateNo).renderPDF(id);
-  if (pdf == undefined) {
-    res.header("Content-type", "application/json");
-    res.send({
-      mmessage:
-        "sorry, due to save cost on server we have to delete stale pdfs. please fill the form again.",
-    });
-  } else {
-    res.header("Content-type", "application/pdf");
-    res.send(pdf);
-  }
+  // if (pdf == undefined) {
+  //   res.header("Content-type", "application/json");
+  //   res.send({
+  //     mmessage:
+  //       "sorry, due to save cost on server we have to delete stale pdfs. please fill the form again.",
+  //   });
+  // } else {
+  console.log("pdf", pdf);
+
+  res.header("Content-type", "application/pdf");
+  res.send(pdf);
+  // }
 });
 
 export default router;

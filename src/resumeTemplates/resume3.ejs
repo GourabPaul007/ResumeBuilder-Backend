@@ -34,8 +34,13 @@
     }
 
     .block {
+      margin-top: 36px;
+      margin-bottom: 24px;
+    }
+
+    .block-items{
       margin-top: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 24px;
     }
 
     .headers {
@@ -50,7 +55,7 @@
       font-weight: 600;
       margin-left: 8px;
       margin-bottom: 8px;
-      margin-top: 8px;
+      margin-top: 12px;
     }
   </style>
 </head>
@@ -94,14 +99,16 @@
             <h2 class="headers">Work Experience</h2>
             <% for( let i=0; i < works.length; i++ ) { %>
               <% if (works[i].organizationName.length>0 && works[i].workDetails.length>0) { %>
-                <h4 class="subHeaders">
-                  <%= works[i].organizationName %>
-                </h4>
-                <% works[i].workDetails.forEach(eachAbout=> { %>
-                  <p style="margin-bottom: 4px; margin-left: 8px">
-                    &#9679; <%= eachAbout %>
-                  </p>
-                <% }) %>
+                <div class="block-items">
+                  <h4 class="subHeaders">
+                    <%= works[i].organizationName %>
+                  </h4>
+                  <% works[i].workDetails.forEach(eachAbout=> { %>
+                    <p style="margin-bottom: 4px; margin-left: 8px">
+                      &#9679; <%= eachAbout %>
+                    </p>
+                  <% }) %>
+                </div>
               <% } %>
             <% } %>
           </div>
@@ -114,16 +121,18 @@
             <% for( let i=0; i < projects.length; i++ ) { %>
               <!-- If the project isnt empty strings/null -->
               <% if (projects[i].name.length>0 && projects[i].details.length>0) { %>
-                <!-- Project Name -->
-                <h4 class="subHeaders">
-                  <%= projects[i].name %>
-                </h4>
-                <!-- Project Details -->
-                <% projects[i].details.forEach(eachAbout=> { %>
-                  <p style="margin-bottom: 4px; margin-left: 16px">
-                    <%- checkHyperlink(eachAbout) %>
-                  </p>
-                <% }) %>
+                <div class="block-items">
+                  <!-- Project Name -->
+                  <h4 class="subHeaders">
+                    <%= projects[i].name %>
+                  </h4>
+                  <!-- Project Details -->
+                  <% projects[i].details.forEach(eachAbout=> { %>
+                    <p style="margin-bottom: 4px; margin-left: 16px">
+                      <%- checkHyperlink(eachAbout) %>
+                    </p>
+                  <% }) %>
+                </div>
               <% } %>
             <% } %>
           </div>
@@ -193,10 +202,10 @@
 
           <!-- Education Block -->
           <% if (educations.length>0) { %>
-            <div style="margin-top: 24px">
+            <div class="block">
               <h2 class="headers">Education</h2>
               <% for( let i=0; i < educations.length; i++ ) { %>
-                <div class="d-flex align-items-center justify-content-start mb-0">
+                <div class="d-flex align-items-center justify-content-start mb-0 mt-10">
                   <div class="d-flex align-items-center justify-content-center">
                     <i class="m-0 p-0 bi bi-building"></i>
                   </div>
@@ -215,22 +224,19 @@
 
               <!-- Others Section -->
               <% if (others.length>0) { %>
-                <div>
-                  <div style="margin-top: 24px">
-                    <h2 class="headers">Other Skills & Activities</h2>
-                    <div style="margin-bottom: 12px">
-                      <!-- Other Skills and Activities Area -->
-
-                      <ul>
-                        <% for( let i=0; i < others.length; i++ ) { %>
-                          <li>
-                            <div>
-                              <%= others[i] %>
-                            </div>
-                          </li>
-                          <% } %>
-                      </ul>
-                    </div>
+                <div class="block">
+                  <h2 class="headers">Other Skills & Activities</h2>
+                  <div style="margin-bottom: 12px">
+                    <!-- Other Skills and Activities Area -->
+                    <ul>
+                      <% for( let i=0; i < others.length; i++ ) { %>
+                        <li>
+                          <div>
+                            <%= others[i] %>
+                          </div>
+                        </li>
+                        <% } %>
+                    </ul>
                   </div>
                 </div>
                 <% } %>

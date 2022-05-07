@@ -1,16 +1,14 @@
-import express from "express";
 import ejs from "ejs";
-import data1 from "../data1.json";
-import data2 from "../data2.json";
 import path from "path";
 import { isDark } from "../Helpers/checkColor";
 import { checkHyperlink } from "../Helpers/checkHyperlink";
 import puppeteer from "puppeteer";
+// import puppeteer from "puppeteer-core";
+import htmlPdf from "html-pdf";
 import { Details } from "../interfaces/Details";
 import { Work } from "../interfaces/Work";
 import { Project } from "../interfaces/Project";
 import { Course } from "../interfaces/Course";
-import { v4 as uuidv4 } from "uuid";
 import {
   addResume,
   deleteResumeById,
@@ -18,6 +16,7 @@ import {
   resumes,
 } from "../repositories/resumeRepository";
 import { ResumeBuildData } from "../interfaces/ResumeBuildData";
+import jsPDF from "jspdf";
 
 export class ResumeService {
   _resumeTemplateNo: string = "3";
@@ -90,7 +89,9 @@ export class ResumeService {
 
     // Getting the Work block
     resumeData.works =
-      details.works.length > 0 && details.works[0].organizationName.length > 0
+      details.works.length > 0 &&
+      details.works[0].organizationName &&
+      details.works[0].workDetails
         ? details.works.map((singleWork: Work) => {
             return {
               organizationName: singleWork.organizationName,
@@ -101,7 +102,9 @@ export class ResumeService {
 
     // Getting the Projects Block
     resumeData.projects =
-      details.projects.length > 0 && details.projects[0].name
+      details.projects.length > 0 &&
+      details.projects[0].name &&
+      details.projects[0].details
         ? details.projects.map((singleProject: Project) => {
             return {
               name: singleProject.name,
@@ -152,6 +155,7 @@ export class ResumeService {
       }
     );
     const pdf = await this.makePDF(templateString);
+    console.log("pdf in renderPdf ", pdf);
 
     // Delete after pdf is downloaded by user
     const timeAfterDelete = 5; //minutes
@@ -163,7 +167,11 @@ export class ResumeService {
   }
 
   async makePDF(templateString: string) {
-    const browser = await puppeteer.launch({ headless: true });
+    // Puppeteer
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
     const page = await browser.newPage();
     await page.setContent(templateString, {
       waitUntil: "networkidle2",
@@ -171,6 +179,21 @@ export class ResumeService {
     const pdf = await page.pdf({ format: "a4", printBackground: true });
     await browser.close();
     return pdf;
+
+    //// htmlPdf
+    // return new Promise((resolve, reject) => {
+    //   htmlPdf
+    //     .create(templateString, { format: "A4", orientation: "portrait" })
+    //     .toBuffer((err, buffer) => {
+    //       if (err) reject(err);
+    //       else resolve(buffer);
+    //     });
+    // });
+
+    //// JsPdf
+    // const doc = new jsPDF();
+    // doc.html(templateString);
+    // return doc;
   }
 
   // // To Save PDF on Server for some reason idk why i made this...
