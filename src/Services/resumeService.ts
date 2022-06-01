@@ -16,7 +16,6 @@ import {
   resumes,
 } from "../repositories/resumeRepository";
 import { ResumeBuildData } from "../interfaces/ResumeBuildData";
-import jsPDF from "jspdf";
 
 export class ResumeService {
   _resumeTemplateNo: string = "3";
