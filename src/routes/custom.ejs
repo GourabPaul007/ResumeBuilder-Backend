@@ -20,6 +20,19 @@
         margin: 28px !important;
         color: #333;
       }
+
+      .block-items {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
+      .subHeaders {
+        text-transform: none;
+        font-weight: 600;
+        margin-left: 8px;
+        margin-bottom: 8px;
+        margin-top: 12px;
+      }
     </style>
   </head>
 
@@ -77,20 +90,35 @@
         </div>
       </div>
 
+      <!-- Projects Area -->
       <div
         style="
           position: absolute;
           margin-bottom: 8px;
           padding: 8px;
-          background-color: green;
-          left: <%=worksDiv.x * 21.0%>mm;
-          top: <%=worksDiv.y * 40%>px;
-          width: <%=worksDiv.w * 21.0%>mm;
-          height: <%=worksDiv.h * 40%>px;
+          background-color: white;
+          overflow: hidden;
+          left: <%=projectsDiv.x * 21.0%>mm;
+          top: <%=projectsDiv.y * 40%>px;
+          width: <%=projectsDiv.w * 21.0%>mm;
+          height: <%=projectsDiv.h * 40%>px;
         "
       >
-        <h1 style="font-weight: 600; margin-bottom: 0px; display: inline-block">WorksDiv</h1>
-        <p style="display: inline-block">&nbsp;&nbsp;works</p>
+        <% if (projectsDiv.data.length>0) { %>
+        <div class="block">
+          <h1 style="font-weight: 600; margin-bottom: 0px">Projects</h1>
+          <% for( let i=0; i < projectsDiv.data.length; i++ ) { %>
+          <!-- If the project isnt empty strings/null -->
+          <% if (projectsDiv.data[i].name.length>0 && projectsDiv.data[i].details.length>0) { %>
+          <div class="block-items">
+            <!-- Project Name -->
+            <h4 class="subHeaders"><%= projectsDiv.data[i].name %></h4>
+            <!-- Project Details -->
+            <p style="margin-bottom: 4px; margin-left: 16px"><%- checkHyperlink(projectsDiv.data[i].details) %></p>
+          </div>
+          <% } %> <% } %>
+        </div>
+        <% } %>
       </div>
 
       <!-- Skills -->

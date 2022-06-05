@@ -24,7 +24,7 @@ const makePdf = async (details: any) => {
     isDark: false,
     checkHyperlink: checkHyperlink,
     aboutDiv: details[0],
-    worksDiv: details[1],
+    projectsDiv: details[1],
     skillsDiv: details[2],
     educationsDiv: details[3],
   });
