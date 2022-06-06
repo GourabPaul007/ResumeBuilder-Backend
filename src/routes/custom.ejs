@@ -16,14 +16,15 @@
       /* padding,margin doesnt work? */
       body {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 15px;
-        margin: 28px !important;
+        font-size: 16px !important;
+        /* margin: 28px !important; */
         color: #333;
       }
 
       .block-items {
         margin-top: 12px;
-        margin-bottom: 12px;
+        margin-bottom: 20px;
+        margin-right: 4px;
       }
 
       .subHeaders {
@@ -39,125 +40,22 @@
   <body>
     <div style="">
       <!-- the about block -->
-      <div
-        style="
-          position: absolute;
-          padding: 8px;
-          background-color: white;
-          left: <%=aboutDiv.x * 21.0%>mm;
-          top: <%=aboutDiv.y * 40%>px;
-          width: <%=aboutDiv.w * 21.0%>mm;
-          height: <%=aboutDiv.h * 40%>px;
-        "
-      >
-        <h1 style="font-weight: 600; margin-bottom: 0px; display: inline-block">Gourab Paul</h1>
-        <p style="display: inline-block">&nbsp;&nbsp;Software Engineer</p>
-        <div style="display: flex; flex-direction: row">
-          <!-- the about extra -->
-          <div style="padding-right: 4px; flex: 60%">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium sunt alias eaque optio enim
-              quisquam, eius quidem laborum totam ut cupiditate quod consequatur! Deserunt consequatur delectus.
-            </p>
-          </div>
-          <div style="flex: 2%"></div>
-          <!-- the contact section -->
-          <div
-            class="ps-3"
-            style="margin-left: 10px; margin-top: 0px; margin-bottom: 6px; border-left: 3px solid #123456; flex: 38%"
-          >
-            <div style="display: flex; margin-bottom: 8px">
-              <i class="bi bi-geo-alt-fill text-danger"></i>
-              <div>
-                <div class="ms-2">Saktigarh, Railgate Rd.</div>
-                <div class="ms-2">Bongaon WB 743235</div>
-              </div>
-            </div>
-
-            <div style="display: flex; margin-bottom: 8px">
-              <i class="bi bi-envelope-fill text-primary"></i>
-              <!-- emails -->
-              <div style="margin-bottom: 4px; margin-left: 8px">
-                <div style="margin-bottom: 0px"><%- checkHyperlink("gourabpaul900@gmail.com") %></div>
-                <div style="margin-bottom: 0px"><%- checkHyperlink("github.com/GourabPaul007") %></div>
-              </div>
-            </div>
-            <div>
-              <i class="bi bi-telephone-fill text-success"></i>
-              <a href="#" class="ms-2 text-decoration-none text-dark">9064040525</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%- aboutDiv %>
 
       <!-- Projects Area -->
-      <div
-        style="
-          position: absolute;
-          margin-bottom: 8px;
-          padding: 8px;
-          background-color: white;
-          overflow: hidden;
-          left: <%=projectsDiv.x * 21.0%>mm;
-          top: <%=projectsDiv.y * 40%>px;
-          width: <%=projectsDiv.w * 21.0%>mm;
-          height: <%=projectsDiv.h * 40%>px;
-        "
-      >
-        <% if (projectsDiv.data.length>0) { %>
-        <div class="block">
-          <h1 style="font-weight: 600; margin-bottom: 0px">Projects</h1>
-          <% for( let i=0; i < projectsDiv.data.length; i++ ) { %>
-          <!-- If the project isnt empty strings/null -->
-          <% if (projectsDiv.data[i].name.length>0 && projectsDiv.data[i].details.length>0) { %>
-          <div class="block-items">
-            <!-- Project Name -->
-            <h4 class="subHeaders"><%= projectsDiv.data[i].name %></h4>
-            <!-- Project Details -->
-            <p style="margin-bottom: 4px; margin-left: 16px"><%- checkHyperlink(projectsDiv.data[i].details) %></p>
-          </div>
-          <% } %> <% } %>
-        </div>
-        <% } %>
-      </div>
+      <%- projectsDiv %>
+
+      <!-- Works -->
+      <%- worksDiv %>
 
       <!-- Skills -->
-
-      <%- skills2 %>
+      <%- skillsDiv %>
 
       <!-- Education -->
-      <div
-        style="
-          position: absolute;
-          margin-bottom: 8px;
-          padding: 8px;
-          background-color: white;
-          left: <%=educationsDiv.x * 21.0%>mm;
-          top: <%=educationsDiv.y * 40%>px;
-          width: <%=educationsDiv.w * 21.0%>mm;
-          height: <%=educationsDiv.h * 40%>px;
-        "
-      >
-        <h1 style="font-weight: 600; margin-bottom: 8px; color: #123456">Education</h1>
-        <div class="d-flex align-items-center justify-content-start mb-0 mt-10">
-          <div class="d-flex align-items-center justify-content-center">
-            <i class="m-0 p-0 bi bi-building"></i>
-          </div>
-          <div class="d-flex flex-column align-items-start justify-content-center ms-3">
-            <p class="fw-bold text-secondary mb-0"><%= "Dinabandhu Mahabidyalaya" %></p>
-            <p class="text-muted"><%= "Bachelors in Computer Science" %>, <%= "CGPA 9.0" %></p>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-start mb-0 mt-10">
-          <div class="d-flex align-items-center justify-content-center">
-            <i class="m-0 p-0 bi bi-building"></i>
-          </div>
-          <div class="d-flex flex-column align-items-start justify-content-center ms-3">
-            <p class="fw-bold text-secondary mb-0"><%= "educations[i].organizationName" %></p>
-            <p class="text-muted"><%= "educations[i].courseName" %>, <%="educations[i].courseResults" %></p>
-          </div>
-        </div>
-      </div>
+      <%- educationsDiv %>
+
+      <!-- Others -->
+      <%- othersDiv %>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

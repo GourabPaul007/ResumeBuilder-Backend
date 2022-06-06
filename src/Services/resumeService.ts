@@ -9,12 +9,7 @@ import { Details } from "../interfaces/Details";
 import { Work } from "../interfaces/Work";
 import { Project } from "../interfaces/Project";
 import { Course } from "../interfaces/Course";
-import {
-  addResume,
-  deleteResumeById,
-  findResumeById,
-  resumes,
-} from "../repositories/resumeRepository";
+import { addResume, deleteResumeById, findResumeById, resumes } from "../repositories/resumeRepository";
 import { ResumeBuildData } from "../interfaces/ResumeBuildData";
 
 export class ResumeService {
@@ -69,7 +64,7 @@ export class ResumeService {
       address: details.about.address,
       cityZip: details.about.cityZip,
       phNo: details.about.phNo,
-      emails: details.about.emails.split(" "),
+      emails: details.about.emails,
       about: details.about.about,
     };
     // Getting the Educations block
@@ -88,9 +83,7 @@ export class ResumeService {
 
     // Getting the Work block
     resumeData.works =
-      details.works.length > 0 &&
-      details.works[0].organizationName &&
-      details.works[0].workDetails
+      details.works.length > 0 && details.works[0].organizationName && details.works[0].workDetails
         ? details.works.map((singleWork: Work) => {
             return {
               organizationName: singleWork.organizationName,
@@ -101,9 +94,7 @@ export class ResumeService {
 
     // Getting the Projects Block
     resumeData.projects =
-      details.projects.length > 0 &&
-      details.projects[0].name &&
-      details.projects[0].details
+      details.projects.length > 0 && details.projects[0].name && details.projects[0].details
         ? details.projects.map((singleProject: Project) => {
             return {
               name: singleProject.name,
@@ -135,12 +126,7 @@ export class ResumeService {
     const resumeData = selectedResume.resumeData;
 
     const templateString = await ejs.renderFile(
-      path.join(
-        __dirname,
-        "..",
-        "resumeTemplates",
-        `resume${this._resumeTemplateNo}.ejs`
-      ),
+      path.join(__dirname, "..", "resumeTemplates", `resume${this._resumeTemplateNo}.ejs`),
       {
         isDark: isDark,
         checkHyperlink: checkHyperlink,

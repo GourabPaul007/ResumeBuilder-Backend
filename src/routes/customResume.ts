@@ -3,6 +3,12 @@ import express from "express";
 import puppeteer from "puppeteer";
 import path from "path";
 import { checkHyperlink } from "../Helpers/checkHyperlink";
+import { skillsSection1 } from "../resumeTemplates/custom/skillsSections";
+import { aboutsSection1 } from "../resumeTemplates/custom/aboutsSections";
+import { educationsSection1 } from "../resumeTemplates/custom/educationsSections";
+import { projectsSection1 } from "../resumeTemplates/custom/projectsSections";
+import { othersSection1 } from "../resumeTemplates/custom/othersSections";
+import { worksSection1 } from "../resumeTemplates/custom/worksSection";
 
 const router = express.Router();
 
@@ -23,43 +29,12 @@ const makePdf = async (details: any) => {
   const templateString = await ejs.renderFile(path.join(__dirname, `custom.ejs`), {
     isDark: false,
     checkHyperlink: checkHyperlink,
-    aboutDiv: details[0],
-    projectsDiv: details[1],
-    skillsDiv: details[2],
-    educationsDiv: details[3],
-    skills2: `
-    <div
-      style="
-        position: absolute;
-        margin-bottom: 8px;
-        padding: 8px;
-        background-color: white;
-        left: ${details[2].x * 21.0}mm;
-        top: ${details[2].y * 40}px;
-        width: ${details[2].w * 21.0}mm;
-        height: ${details[2].h * 40}px;
-      "
-    >
-      <h1 style="font-weight: 600; color: #123456">Skills</h1>
-      <div style="margin-top: 8px; padding-left: 8px">
-        ${details[2].data
-          .map((eachSkill: string) => {
-            return `<div
-            style="
-              display: inline-block;
-              padding: 4px 8px;
-              margin: 4px;
-              border-radius: 6px;
-              color: #fff;
-              background-color: #123456;
-            "
-          >
-          ${eachSkill}
-        </div>`;
-          })
-          .join("")}
-      </div>
-    </div>`,
+    aboutDiv: aboutsSection1(details[0]),
+    worksDiv: worksSection1(details[5]),
+    projectsDiv: projectsSection1(details[1]),
+    educationsDiv: educationsSection1(details[3]),
+    skillsDiv: skillsSection1(details[2]),
+    othersDiv: othersSection1(details[4]),
   });
   // Puppeteer
   const browser = await puppeteer.launch({
