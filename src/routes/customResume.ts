@@ -26,15 +26,17 @@ router.post("/custom-resume", express.json(), async (req, res) => {
 export default router;
 
 const makePdf = async (details: any) => {
-  const templateString = await ejs.renderFile(path.join(__dirname, `custom.ejs`), {
+  const templateString = await ejs.renderFile(path.join(__dirname, "..", "resumeTemplates", `custom.ejs`), {
     isDark: false,
     checkHyperlink: checkHyperlink,
-    aboutDiv: aboutsSection1(details[0]),
-    worksDiv: worksSection1(details[5]),
-    projectsDiv: projectsSection1(details[1]),
-    educationsDiv: educationsSection1(details[3]),
-    skillsDiv: skillsSection1(details[2]),
-    othersDiv: othersSection1(details[4]),
+    blocks: [
+      aboutsSection1(details[0]),
+      worksSection1(details[5]),
+      projectsSection1(details[1]),
+      educationsSection1(details[3]),
+      skillsSection1(details[2]),
+      othersSection1(details[4]),
+    ],
   });
   // Puppeteer
   const browser = await puppeteer.launch({
