@@ -1,31 +1,15 @@
 import ejs from "ejs";
-import express from "express";
 import puppeteer from "puppeteer";
 import path from "path";
 import { checkHyperlink } from "../Helpers/checkHyperlink";
-import { skillsSection1 } from "../resumeTemplates/custom/skillsSections";
 import { aboutsSection1 } from "../resumeTemplates/custom/aboutsSections";
 import { educationsSection1 } from "../resumeTemplates/custom/educationsSections";
-import { projectsSection1 } from "../resumeTemplates/custom/projectsSections";
 import { othersSection1 } from "../resumeTemplates/custom/othersSections";
+import { projectsSection1 } from "../resumeTemplates/custom/projectsSections";
+import { skillsSection1 } from "../resumeTemplates/custom/skillsSections";
 import { worksSection1 } from "../resumeTemplates/custom/worksSection";
 
-const router = express.Router();
-
-router.post("/custom-resume", express.json(), async (req, res) => {
-  const details = req.body;
-  console.log("details received", details);
-  const pdf = await makePdf(details);
-  // resumeTemplateNo = details.template;
-  // new ResumeService(resumeTemplateNo).setResumeData(details, details.resumeId);
-  res.header("Content-type", "application/pdf");
-  res.send(pdf);
-  // res.status(200).send({ message: "data received", receivedData: details });
-});
-
-export default router;
-
-const makePdf = async (details: any) => {
+export const makePdf = async (details: any) => {
   const templateString = await ejs.renderFile(path.join(__dirname, "..", "resumeTemplates", `custom.ejs`), {
     isDark: false,
     checkHyperlink: checkHyperlink,

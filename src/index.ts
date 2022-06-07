@@ -9,7 +9,7 @@ app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
 import resumeRoute from "./routes/resumeRoute";
-import customResume from "./routes/customResume";
+import customResume from "./routes/customResumeRoute";
 app.use("/api/resume", resumeRoute);
 app.use("/api/custom", customResume);
 
