@@ -6,13 +6,14 @@ export const worksSection1 = (works: { x: number; y: number; w: number; h: numbe
     <div
       style="
         position: absolute;
-        padding: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
         background-color: white;
         overflow: hidden;
         left: ${works.x * 21.0}mm;
-        top: ${works.y * 10}px;
+        top: ${works.y * 20 + (works.y - 1) * 10}px;
         width: ${works.w * 21.0}mm;
-        height: ${works.h * 10}px;
+        height: ${works.h * 20 + (works.h - 1) * 10}px;
       "
     >
 

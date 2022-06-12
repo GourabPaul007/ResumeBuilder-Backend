@@ -3,13 +3,14 @@ export const othersSection1 = (others: { x: number; y: number; w: number; h: num
     <div
       style="
         position: absolute;
-        padding: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
         background-color: white;
         overflow: hidden;
         left: ${others.x * 21.0}mm;
-        top: ${others.y * 10}px;
+        top: ${others.y * 20 + (others.y - 1) * 10}px;
         width: ${others.w * 21.0}mm;
-        height: ${others.h * 10}px;
+        height: ${others.h * 20 + (others.h - 1) * 10}px;
       "
     >
       <h2 style="font-weight: 600; color: #123456">Other Skills & Activities</h2>

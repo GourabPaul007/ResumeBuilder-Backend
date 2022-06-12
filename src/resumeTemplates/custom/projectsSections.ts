@@ -6,13 +6,14 @@ export const projectsSection1 = (projects: { x: number; y: number; w: number; h:
     <div
       style="
         position: absolute;
-        padding: 4px;
+        padding-left: 4px;
+        padding-right: 20px;
         background-color: white;
         overflow: hidden;
         left: ${projects.x * 21.0}mm;
-        top: ${projects.y * 10}px;
+        top: ${projects.y * 20 + (projects.y - 1) * 10}px;
         width: ${projects.w * 21.0}mm;
-        height: ${projects.h * 10}px;
+        height: ${projects.h * 20 + (projects.h - 1) * 10}px;
       "
     >
 

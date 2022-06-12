@@ -13,26 +13,27 @@ export const educationsSection1 = (educations: {
     style="
       position: absolute;
       margin-bottom: 8px;
-      padding: 8px;
+      padding-left: 4px;
+      padding-right: 4px;
       background-color: white;
       overflow: hidden;
       left: ${educations.x * 21.0}mm;
-      top: ${educations.y * 10}px;
+      top: ${educations.y * 20 + (educations.y - 1) * 10}px;
       width: ${educations.w * 21.0}mm;
-      height: ${educations.h * 10}px;
+      height: ${educations.h * 20 + (educations.h - 1) * 10}px;
     "
   >
-    <h1 style="font-weight: 600; margin-bottom: 8px; color: #123456">Education</h1>
+    <h1 style="font-weight: 600; margin-bottom: 4px; color: #123456">Education</h1>
     ${educations.data
       .map((course) => {
         return `
-          <div class="d-flex align-items-center justify-content-start mb-0 mt-10">
-            <div class="d-flex align-items-center justify-content-center">
-              <i class="m-0 p-0 bi bi-building"></i>
+          <div style="display: flex; flex-direction: row; justify-content: start; align-items: center; margin-bottom: 8px">
+            <div style="display: flex; align-items: center; justify-content: center">
+              <i style="font-size: 24px" class="m-0 p-0 bi bi-building"></i>
             </div>
-            <div class="d-flex flex-column align-items-start justify-content-center ms-3">
+            <div style="display: flex; flex-direction: column; align-items: start; justify-content: center;">
               <p class="fw-bold text-secondary mb-0">${course.organizationName}</p>
-              <p class="text-muted">${course.courseName}, ${course.courseResults}</p>
+              <p class="text-muted mb-0">${course.courseName}, ${course.courseResults}</p>
             </div>
           </div>
         `;

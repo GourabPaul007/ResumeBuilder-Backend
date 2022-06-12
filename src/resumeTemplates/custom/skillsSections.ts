@@ -3,13 +3,14 @@ export const skillsSection1 = (skills: { x: number; y: number; w: number; h: num
     style="
       position: absolute;
       margin-bottom: 8px;
-      padding: 4px;
+      padding-left: 4px;
+      padding-right: 4px;
       background-color: white;
       overflow : hidden;
       left: ${skills.x * 21.0}mm;
-      top: ${skills.y * 10}px;
+      top: ${skills.y * 20 + (skills.y - 1) * 10}px;
       width: ${skills.w * 21.0}mm;
-      height: ${skills.h * 10}px;
+      height: ${skills.h * 20 + (skills.h - 1) * 10}px;
     "
     >
     <h2 style="font-weight: 600; color: #123456">Skills</h2>

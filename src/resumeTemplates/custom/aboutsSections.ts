@@ -6,16 +6,17 @@ export const aboutsSection1 = (about: { x: number; y: number; w: number; h: numb
     <div
       style="
         position: absolute;
-        padding: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
         background-color: white;
         overflow: hidden;
         left: ${about.x * 21.0}mm;
-        top: ${about.y * 10}px;
+        top: ${about.y * 20 + (about.y - 1) * 10}px;
         width: ${about.w * 21.0}mm;
-        height: ${about.h * 10}px;
+        height: ${about.h * 20 + (about.h - 1) * 10}px;
       "
     >
-      <h1 style="font-weight: 600; margin-bottom: 0px; display: inline-block">${about.data.name}</h1>
+      <h1 style="font-weight: 600; margin-bottom: 0px; padding-top: 4px; display: inline-block">${about.data.name}</h1>
       <p style="display: inline-block">&nbsp;&nbsp;${about.data.profession}</p>
       <div style="display: flex; flex-direction: row">
 
