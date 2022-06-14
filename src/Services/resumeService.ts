@@ -26,9 +26,9 @@ export class ResumeService {
       about: {
         name: "",
         profession: "",
-        address: "",
+        address: [""],
         cityZip: "",
-        phNo: "",
+        phno: "",
         emails: [""],
         about: "",
       },
@@ -63,7 +63,7 @@ export class ResumeService {
       profession: details.about.profession,
       address: details.about.address,
       cityZip: details.about.cityZip,
-      phNo: details.about.phNo,
+      phno: details.about.phno,
       emails: details.about.emails,
       about: details.about.about,
     };
@@ -94,11 +94,11 @@ export class ResumeService {
 
     // Getting the Projects Block
     resumeData.projects =
-      details.projects.length > 0 && details.projects[0].name && details.projects[0].details
+      details.projects.length > 0 && details.projects[0].projectName && details.projects[0].projectDetails
         ? details.projects.map((singleProject: Project) => {
             return {
-              name: singleProject.name,
-              details: singleProject.details.split("\n"),
+              name: singleProject.projectName,
+              details: singleProject.projectDetails,
             };
           })
         : [];

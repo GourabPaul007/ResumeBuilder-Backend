@@ -1,4 +1,4 @@
-export const checkHyperlink = (str: string): string => {
+export const checkHyperlink = (str: string): any => {
   //new String to be returned
   let newString: string = "";
 
@@ -8,8 +8,11 @@ export const checkHyperlink = (str: string): string => {
 
   // splits string in arrays to check for each word
   const strArray: string[] = str.split(" ");
+  const newArray = [];
 
-  strArray.forEach((element) => {
+  for (let i = 0; i < strArray.length; i++) {
+    const element = strArray[i];
+
     let startIndex: number;
     let match: RegExpExecArray | null;
 
@@ -22,15 +25,16 @@ export const checkHyperlink = (str: string): string => {
       const endIndexOfLink = element.indexOf(")", startIndex);
       const url = element.substring(startIndex, endIndexOfLink);
       hyperLink = `<a href="${url}" style="text-decoration: none;">${word}</a>`;
-
+      newArray.push(hyperLink);
       // manages stuff if user added comma(,) or dot(.) after the end of parenthesis.
-      if (element.length > endIndexOfLink) {
-        hyperLink += element.substring(endIndexOfLink + 1, element.length);
-      }
-      element = hyperLink;
+      // if (element.length > endIndexOfLink) {
+      //   hyperLink += element.substring(endIndexOfLink + 1, element.length);
+      // }
+      // element = hyperLink;
+    } else {
+      newArray.push(`<span>${element}</span> `);
     }
-    // add the custom anchor tag(if it exists, else the same text) to the new string
-    newString += `${element} `;
-  });
-  return newString;
+  }
+  console.log(`<p>${newArray.join(" ")}</p>`);
+  return newArray.join(" ");
 };

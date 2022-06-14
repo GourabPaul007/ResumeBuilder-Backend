@@ -23,9 +23,25 @@ export const projectsSection1 = (projects: { x: number; y: number; w: number; h:
           .map((eachProject) => {
             return `
             <!-- Project Name -->
-            <h4 class="subHeaders">${eachProject.name}</h4>
+            <h4 class="subHeaders">${eachProject.projectName}</h4>
             <!-- Project Details -->
-            <p style="margin-bottom: 4px; margin-left: 16px">${checkHyperlink(eachProject.details)}</p>
+            <div style="margin-bottom: 4px; margin-left: 16px">
+              ${eachProject.projectDetails
+                .map((detail) => {
+                  return `<div
+                  key={detail}
+                  style={{
+                    display: flex,
+                    flex-direction: row,
+                    justify-content: start,
+                    align-items: "start",
+                  }}
+                >
+                  ${checkHyperlink(detail)}
+                </div>`;
+                })
+                .join("")}
+            </div>
           `;
           })
           .join("")}

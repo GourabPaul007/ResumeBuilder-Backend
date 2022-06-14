@@ -36,8 +36,11 @@ export const aboutsSection1 = (about: { x: number; y: number; w: number; h: numb
           <div style="display: flex; margin-bottom: 8px">
             <i class="bi bi-geo-alt-fill text-danger"></i>
             <div>
-              <div style="margin-left: 8px">${about.data.address}</div>
-              <div style="margin-left: 8px">${about.data.cityZip}</div>
+              ${about.data.address
+                .map((element) => {
+                  return `<div style="margin-left: 8px">${element}</div>`;
+                })
+                .join("")}
             </div>
           </div>
 
@@ -54,7 +57,7 @@ export const aboutsSection1 = (about: { x: number; y: number; w: number; h: numb
           </div>
           <div>
             <i class="bi bi-telephone-fill text-success"></i>
-            <a href="#" class="text-decoration-none text-dark" style="margin-left:8px">${about.data.phNo}</a>
+            <a href="#" class="text-decoration-none text-dark" style="margin-left:8px">${about.data.phno}</a>
           </div>
         </div>
       </div>

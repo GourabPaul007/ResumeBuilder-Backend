@@ -4,9 +4,9 @@ export interface ResumeBuildData {
   about: {
     name: string;
     profession: string;
-    address: string;
+    address: string[];
     cityZip: string;
-    phNo: string;
+    phno: string;
     emails: string[];
     about: string;
   };
