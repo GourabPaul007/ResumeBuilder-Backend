@@ -2,7 +2,7 @@ import ejs from "ejs";
 import puppeteer from "puppeteer";
 import path from "path";
 import { checkHyperlink } from "../Helpers/checkHyperlink";
-import { aboutsSection1 } from "../resumeTemplates/custom/aboutsSections";
+import { aboutWithContactSection1 } from "../resumeTemplates/custom/aboutWithContactSections";
 import { educationsSection1 } from "../resumeTemplates/custom/educationsSections";
 import { othersSection1 } from "../resumeTemplates/custom/othersSections";
 import { projectsSection1 } from "../resumeTemplates/custom/projectsSections";
@@ -27,7 +27,7 @@ const organizeData = (element: any) => {
 
   switch (element.name) {
     case "about":
-      return aboutsSection1(element);
+      return aboutWithContactSection1(element);
     case "educations":
       return educationsSection1(element);
     case "skills":

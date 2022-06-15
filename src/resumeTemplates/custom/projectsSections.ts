@@ -29,16 +29,16 @@ export const projectsSection1 = (projects: { x: number; y: number; w: number; h:
               ${eachProject.projectDetails
                 .map((detail) => {
                   return `<div
-                  key={detail}
-                  style={{
-                    display: flex,
-                    flex-direction: row,
-                    justify-content: start,
-                    align-items: "start",
-                  }}
-                >
-                  ${checkHyperlink(detail)}
-                </div>`;
+                    key={detail}
+                    style={{
+                      display: flex,
+                      flex-direction: row,
+                      justify-content: start,
+                      align-items: "start",
+                    }}
+                  >
+                    ${checkHyperlink(detail)}
+                  </div>`;
                 })
                 .join("")}
             </div>

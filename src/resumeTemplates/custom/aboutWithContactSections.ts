@@ -1,7 +1,13 @@
 import { checkHyperlink } from "../../Helpers/checkHyperlink";
 import { About } from "../../interfaces/About";
 
-export const aboutsSection1 = (about: { x: number; y: number; w: number; h: number; data: About }): string => {
+export const aboutWithContactSection1 = (about: {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  data: About;
+}): string => {
   return `
     <div
       style="
@@ -21,7 +27,7 @@ export const aboutsSection1 = (about: { x: number; y: number; w: number; h: numb
       <div style="display: flex; flex-direction: row">
 
         <!-- the about extra -->
-        <div style="padding-right: 4px; padding-left: 4px; flex: 60%">
+        <div style="padding-right: 4px; padding-left: 4px; flex: 59%">
           <p>
             ${about.data.about}
           </p>
@@ -29,10 +35,7 @@ export const aboutsSection1 = (about: { x: number; y: number; w: number; h: numb
         <div style="flex: 2%"></div>
 
         <!-- the contact section -->
-        <div
-          class="ps-3"
-          style="margin-left: 10px; margin-top: 0px; margin-bottom: 6px; border-left: 3px solid #123456; flex: 38%"
-        >
+        <div  style="margin-left: 6px; margin-bottom: 6px; padding-left: 20px; border-left: 3px solid #123456; flex: 39%">
           <div style="display: flex; margin-bottom: 8px">
             <i class="bi bi-geo-alt-fill text-danger"></i>
             <div>
@@ -57,7 +60,7 @@ export const aboutsSection1 = (about: { x: number; y: number; w: number; h: numb
           </div>
           <div>
             <i class="bi bi-telephone-fill text-success"></i>
-            <a href="#" class="text-decoration-none text-dark" style="margin-left:8px">${about.data.phno}</a>
+            <span style="margin-left:8px">${about.data.phno}</span>
           </div>
         </div>
       </div>

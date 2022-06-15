@@ -7,7 +7,7 @@ export const worksSection1 = (works: { x: number; y: number; w: number; h: numbe
       style="
         position: absolute;
         padding-left: 4px;
-        padding-right: 4px;
+        padding-right: 20px;
         background-color: white;
         overflow: hidden;
         left: ${works.x * 21.0}mm;
@@ -23,12 +23,27 @@ export const worksSection1 = (works: { x: number; y: number; w: number; h: numbe
           .map((eachWork) => {
             return `
             <!-- Work Name -->
-            <h4 class="subHeaders">${eachWork.organizationName}</h4>
+            <h4 class="subHeaders">${eachWork.workOrganizationName}</h4>
             <!-- Work Details -->
-            <p style="margin-bottom: 4px; margin-left: 16px">${checkHyperlink(eachWork.workDetails)}</p>
-          `;
+            <div style="margin-bottom: 4px; margin-left: 16px">
+              ${eachWork.workDetails
+                .map((detail) => {
+                  return `<div
+                    key={detail}
+                    style={{
+                      display: flex,
+                      flex-direction: row,
+                      justify-content: start,
+                      align-items: "start",
+                    }}
+                  >
+                    ${checkHyperlink(detail)}
+                  </div>`;
+                })
+                .join("")}
+                </div>`;
           })
-          .join("")}
+          .join("")}</div>
       </div>
     </div>
   `;

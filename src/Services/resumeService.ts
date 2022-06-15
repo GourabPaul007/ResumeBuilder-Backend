@@ -83,11 +83,11 @@ export class ResumeService {
 
     // Getting the Work block
     resumeData.works =
-      details.works.length > 0 && details.works[0].organizationName && details.works[0].workDetails
+      details.works.length > 0 && details.works[0].workOrganizationName && details.works[0].workDetails
         ? details.works.map((singleWork: Work) => {
             return {
-              organizationName: singleWork.organizationName,
-              workDetails: singleWork.workDetails.split("\n"),
+              organizationName: singleWork.workOrganizationName,
+              workDetails: singleWork.workDetails,
             };
           })
         : [];
