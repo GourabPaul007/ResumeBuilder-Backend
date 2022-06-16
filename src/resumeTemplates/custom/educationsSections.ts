@@ -1,4 +1,3 @@
-import { checkHyperlink } from "../../Helpers/checkHyperlink";
 import { Course } from "../../interfaces/Course";
 
 export const educationsSection1 = (educations: {
@@ -40,7 +39,7 @@ export const educationsSection1 = (educations: {
                   <!------------------------------------------------------------------------------>
                   <!-- Needed to Use margin-top & margin-bottom because align-items wont center -->
                   <!------------------------------------------------------------------------------>
-                  <p style="color: #ff3434; font-size: 12px; flex-shrink: 0; margin-top: auto; margin-bottom: auto;">2019 - 2022</p>
+                  <p style="color: #ff3434; font-size: 12px; flex-shrink: 0; margin-bottom: auto; padding-top: 2px">2019 - 2022</p>
                 </div>
 
                 <p style="font-weight: 500; color: #434343; margin: 0px;">${course.courseName}, ${course.courseResults}</p>
