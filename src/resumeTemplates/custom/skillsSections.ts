@@ -1,4 +1,6 @@
-export const skillsSection1 = (skills: { x: number; y: number; w: number; h: number; data: string[] }): string => {
+import { Skills } from "../../interfaces/Skills";
+
+export const skillsSection1 = (skills: { x: number; y: number; w: number; h: number; data: Skills }): string => {
   return `<div
     style="
       position: absolute;
@@ -14,7 +16,7 @@ export const skillsSection1 = (skills: { x: number; y: number; w: number; h: num
     ">
       <h2 style="font-weight: 600; color: #123456; padding: 0px; margin: 0px">Skills</h2>
       <div style="margin-top: 4px; padding-left: 8px; font-weight: 500;">
-        ${skills.data
+        ${skills.data.data
           .map((eachSkill: string) => {
             return `<div
               style="
@@ -23,7 +25,7 @@ export const skillsSection1 = (skills: { x: number; y: number; w: number; h: num
                 margin: 4px;
                 border-radius: 6px;
                 color: #fff;
-                background-color: #123456;
+                background-color: ${skills.data.color};
               ">
                 ${eachSkill}
               </div>`;
