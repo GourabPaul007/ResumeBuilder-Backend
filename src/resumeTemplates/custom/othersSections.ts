@@ -7,9 +7,9 @@ export const othersSection1 = (others: { x: number; y: number; w: number; h: num
         padding-right: 4px;
         background-color: white;
         overflow: hidden;
-        left: ${others.x * 21.0}mm;
+        left: ${others.x * 17.5}mm;
         top: ${others.y * 20 + (others.y - 1) * 10}px;
-        width: ${others.w * 21.0}mm;
+        width: ${others.w * 17.5}mm;
         height: ${others.h * 20 + (others.h - 1) * 10}px;
       "
     >

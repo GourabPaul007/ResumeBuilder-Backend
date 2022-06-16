@@ -17,13 +17,13 @@ export const educationsSection1 = (educations: {
       padding-right: 4px;
       background-color: white;
       overflow: hidden;
-      left: ${educations.x * 21.0}mm;
+      left: ${educations.x * 17.5}mm;
       top: ${educations.y * 20 + (educations.y - 1) * 10}px;
-      width: ${educations.w * 21.0}mm;
+      width: ${educations.w * 17.5}mm;
       height: ${educations.h * 20 + (educations.h - 1) * 10}px;
     "
   >
-    <h1 style="font-weight: 600; margin-bottom: 4px; color: #123456">Education</h1>
+    <h2 style="font-weight: 600; margin-bottom: 4px; color: #123456">Education</h2>
     ${educations.data
       .map((course) => {
         return `
