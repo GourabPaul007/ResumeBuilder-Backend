@@ -8,7 +8,7 @@ export const worksSection1 = (works: { x: number; y: number; w: number; h: numbe
         position: absolute;
         padding-left: 20px;
         padding-right: 20px;
-        background-color: white;
+        background-color: transparent;
         overflow: hidden;
         left: ${works.x * 17.5}mm;
         top: ${works.y * 20 + (works.y - 1) * 10}px;

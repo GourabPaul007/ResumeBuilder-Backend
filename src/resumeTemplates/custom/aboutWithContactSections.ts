@@ -14,7 +14,7 @@ export const aboutWithContactSection1 = (about: {
         position: absolute;
         padding-left: 20px;
         padding-right: 20px;
-        background-color: white;
+        background-color: transparent;
         overflow: hidden;
         left: ${about.x * 17.5}mm;
         top: ${about.y * 20 + (about.y - 1) * 10}px;

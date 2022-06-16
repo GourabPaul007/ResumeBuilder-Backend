@@ -5,7 +5,7 @@ export const skillsSection1 = (skills: { x: number; y: number; w: number; h: num
       margin-bottom: 8px;
       padding-left: 20px;
       padding-right: 20px;
-      background-color: white;
+      background-color: transparent;
       overflow : hidden;
       left: ${skills.x * 17.5}mm;
       top: ${skills.y * 20 + (skills.y - 1) * 10}px;

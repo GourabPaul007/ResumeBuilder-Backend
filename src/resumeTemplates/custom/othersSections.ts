@@ -5,7 +5,7 @@ export const othersSection1 = (others: { x: number; y: number; w: number; h: num
         position: absolute;
         padding-left: 20px;
         padding-right: 20px;
-        background-color: white;
+        background-color: transparent;
         overflow: hidden;
         left: ${others.x * 17.5}mm;
         top: ${others.y * 20 + (others.y - 1) * 10}px;
