@@ -3,8 +3,8 @@ export const skillsSection1 = (skills: { x: number; y: number; w: number; h: num
     style="
       position: absolute;
       margin-bottom: 8px;
-      padding-left: 4px;
-      padding-right: 4px;
+      padding-left: 20px;
+      padding-right: 20px;
       background-color: white;
       overflow : hidden;
       left: ${skills.x * 17.5}mm;

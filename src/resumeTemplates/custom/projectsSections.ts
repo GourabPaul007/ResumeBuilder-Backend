@@ -6,7 +6,7 @@ export const projectsSection1 = (projects: { x: number; y: number; w: number; h:
     <div
       style="
         position: absolute;
-        padding-left: 4px;
+        padding-left: 20px;
         padding-right: 20px;
         background-color: white;
         overflow: hidden;

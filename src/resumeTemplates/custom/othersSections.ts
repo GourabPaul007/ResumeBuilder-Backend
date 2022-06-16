@@ -3,8 +3,8 @@ export const othersSection1 = (others: { x: number; y: number; w: number; h: num
     <div
       style="
         position: absolute;
-        padding-left: 4px;
-        padding-right: 4px;
+        padding-left: 20px;
+        padding-right: 20px;
         background-color: white;
         overflow: hidden;
         left: ${others.x * 17.5}mm;

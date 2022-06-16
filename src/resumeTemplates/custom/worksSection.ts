@@ -6,7 +6,7 @@ export const worksSection1 = (works: { x: number; y: number; w: number; h: numbe
     <div
       style="
         position: absolute;
-        padding-left: 8px;
+        padding-left: 20px;
         padding-right: 20px;
         background-color: white;
         overflow: hidden;
