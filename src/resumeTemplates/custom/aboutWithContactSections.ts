@@ -8,7 +8,7 @@ export const aboutWithContactSection1 = (about: {
   h: number;
   data: About;
 }): string => {
-  return `
+  return /*html*/ `
     <div
       style="
         position: absolute;

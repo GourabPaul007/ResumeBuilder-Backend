@@ -12,8 +12,9 @@ import { About } from "../interfaces/About";
 import { Project } from "../interfaces/Project";
 import { Work } from "../interfaces/Work";
 import { Course } from "../interfaces/Course";
+import { FormStyles } from "../interfaces/FormStyles";
 
-const organizeData = (element: any) => {
+const organizeData = (element: any, formStyles: FormStyles) => {
   // details.forEach(
   //   (element: {
   //     name?: any;
@@ -29,7 +30,7 @@ const organizeData = (element: any) => {
     case "about":
       return aboutWithContactSection1(element);
     case "educations":
-      return educationsSection1(element);
+      return educationsSection1(element, formStyles);
     case "skills":
       return skillsSection1(element);
     case "works":
@@ -45,13 +46,16 @@ const organizeData = (element: any) => {
   // );
 };
 
-export const makePdf = async (details: any[]) => {
+export const makePdf = async (blocks: any[], formStyles: FormStyles) => {
+  console.log(formStyles.titleFillColor);
+
   const templateString = await ejs.renderFile(path.join(__dirname, "..", "resumeTemplates", `custom.ejs`), {
     isDark: false,
     checkHyperlink: checkHyperlink,
-    blocks: details.map((detail: any) => {
-      return organizeData(detail);
+    blocks: blocks.map((blockDetail: any) => {
+      return organizeData(blockDetail, formStyles);
     }),
+    formStyles: formStyles,
     // [
     //   aboutsSection1(details[0]),
     //   worksSection1(details[5]),

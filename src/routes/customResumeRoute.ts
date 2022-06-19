@@ -4,9 +4,9 @@ import { makePdf } from "../Services/customResumeService";
 const router = express.Router();
 
 router.post("/custom-resume", express.json(), async (req, res) => {
-  const details = req.body;
-  console.log("details received", details);
-  const pdf = await makePdf(details);
+  const { blocks, formStyles } = req.body;
+  console.log("details received", blocks);
+  const pdf = await makePdf(blocks, formStyles);
   // resumeTemplateNo = details.template;
   // new ResumeService(resumeTemplateNo).setResumeData(details, details.resumeId);
   res.header("Content-type", "application/pdf");
