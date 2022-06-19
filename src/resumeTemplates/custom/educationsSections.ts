@@ -1,5 +1,6 @@
 import { Course } from "../../interfaces/Course";
 import { FormStyles } from "../../interfaces/FormStyles";
+import { SectionStyles } from "./_SectionStyles";
 
 export const educationsSection1 = (
   educations: {
@@ -11,33 +12,11 @@ export const educationsSection1 = (
   },
   formStyles: FormStyles
 ): string => {
+  // style=${SectionStyles.sectionWrapper(educations.x, educations.y, educations.w, educations.h)
   return /*html*/ `
-  <div
-    style="
-      position: absolute;
-      padding-left: 20px;
-      padding-right: 20px;
-      background-color: transparent;
-      overflow: hidden;
-      left: ${educations.x * 17.5}mm;
-      top: ${educations.y * 20 + (educations.y - 1) * 10}px;
-      width: ${educations.w * 17.5}mm;
-      height: ${educations.h * 20 + (educations.h - 1) * 10}px;
-    "
-  >
-    <div 
-      style="border-bottom: 2px solid ${formStyles.titleUnderline ? formStyles.titleColor : "transparent"};
-        width: ${formStyles.titleFullWidth ? "100%" : "fit-content"}; margin-bottom: 4px;"
-    >
-      <h2 
-        style="font-weight: 600;
-          display: inline-block;
-          padding: 2px 4px 2px ${formStyles.titleFilled ? 4 : 0}px;
-          margin: 0px;
-          color: ${formStyles.titleColor};
-          background-color: ${formStyles.titleFilled ? formStyles.titleFillColor : "transparent"};
-          width: ${formStyles.titleFullWidth ? "100%" : "fit-content"};"
-      >
+  <div style="${SectionStyles.sectionWrapper({ x: educations.x, y: educations.y, w: educations.w, h: educations.h })}">
+    <div style="${SectionStyles.blockTitleDiv(formStyles)}">
+      <h2 style="${SectionStyles.blockTitleH2(formStyles)}"">
         Education
       </h2>
     </div>

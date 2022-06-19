@@ -1,27 +1,20 @@
 import { checkHyperlink } from "../../Helpers/checkHyperlink";
 import { About } from "../../interfaces/About";
+import { FormStyles } from "../../interfaces/FormStyles";
+import { SectionStyles } from "./_SectionStyles";
 
-export const aboutWithContactSection1 = (about: {
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-  data: About;
-}): string => {
+export const aboutWithContactSection1 = (
+  about: {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    data: About;
+  },
+  formStyles: FormStyles
+): string => {
   return /*html*/ `
-    <div
-      style="
-        position: absolute;
-        padding-left: 20px;
-        padding-right: 20px;
-        background-color: transparent;
-        overflow: hidden;
-        left: ${about.x * 17.5}mm;
-        top: ${about.y * 20 + (about.y - 1) * 10}px;
-        width: ${about.w * 17.5}mm;
-        height: ${about.h * 20 + (about.h - 1) * 10}px;
-      "
-    >
+    <div style="${SectionStyles.sectionWrapper({ x: about.x, y: about.y, w: about.w, h: about.h })}">
       <h1 style="font-weight: 600; margin-bottom: 0px; padding-top: 4px; display: inline-block">${about.data.name}</h1>
       <p style="display: inline-block">&nbsp;&nbsp;${about.data.profession}</p>
       <div style="display: flex; flex-direction: row">

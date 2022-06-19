@@ -28,17 +28,17 @@ const organizeData = (element: any, formStyles: FormStyles) => {
 
   switch (element.name) {
     case "about":
-      return aboutWithContactSection1(element);
+      return aboutWithContactSection1(element, formStyles);
     case "educations":
       return educationsSection1(element, formStyles);
     case "skills":
-      return skillsSection1(element);
+      return skillsSection1(element, formStyles);
     case "works":
-      return worksSection1(element);
+      return worksSection1(element, formStyles);
     case "projects":
-      return projectsSection1(element);
+      return projectsSection1(element, formStyles);
     case "others":
-      return othersSection1(element);
+      return othersSection1(element, formStyles);
     default:
       break;
   }
