@@ -13,15 +13,15 @@ export const skillsSection1 = (
           Projects
         </h2>
       </div>
-      <div style="margin-top: 4px; padding-left: 8px; font-weight: 500;">
+      <div style="padding-left: 8px; font-weight: 500;">
         ${skills.data.data
           .map((eachSkill: string) => {
             return `<div
               style="
                 display: inline-block;
-                padding: 4px 8px;
+                padding: 6px 12px;
                 margin: 4px;
-                border-radius: ${skills.data.radius}px;
+                border-radius: ${skills.data.chipRadius}px;
                 color: #fff;
                 background-color: ${skills.data.color};
               ">

@@ -19,7 +19,7 @@ export class SectionStyles {
     return `
       border-bottom: 2px solid ${formStyles.titleUnderline ? formStyles.titleColor : "transparent"};
       width: ${formStyles.titleFullWidth ? "100%" : "fit-content"}; 
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     `;
   }
 

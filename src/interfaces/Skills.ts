@@ -1,5 +1,5 @@
 export interface Skills {
   color: string;
-  radius: number;
+  chipRadius: number;
   data: string[];
 }
