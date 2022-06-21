@@ -3,3 +3,8 @@ export interface Project {
   projectName: string;
   projectDetails: string[];
 }
+
+export interface Projects {
+  title: string;
+  data: Project[];
+}

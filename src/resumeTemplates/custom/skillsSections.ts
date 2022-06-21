@@ -9,8 +9,8 @@ export const skillsSection1 = (
   return /*html*/ `<div
     style="${SectionStyles.sectionWrapper({ x: skills.x, y: skills.y, w: skills.w, h: skills.h })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles)}">
-        <h2 style="${SectionStyles.blockTitleH2(formStyles)}"">
-          Projects
+        <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
+          ${skills.data.title}
         </h2>
       </div>
       <div style="padding-left: 8px; font-weight: 500;">

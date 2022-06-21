@@ -1,5 +1,5 @@
 import express from "express";
-import { ResumeService } from "../Services/resumeService";
+// import { ResumeService } from "../Services/resumeService";
 
 const router = express.Router();
 
@@ -8,13 +8,13 @@ let resumeTemplateNo: string = "3";
 router.post("/post-data", express.json(), (req, res) => {
   const details = req.body;
   resumeTemplateNo = details.template;
-  new ResumeService(resumeTemplateNo).setResumeData(details, details.resumeId);
+  // new ResumeService(resumeTemplateNo).setResumeData(details, details.resumeId);
   res.status(200).send({ message: "data received" });
 });
 
 router.get("/get-pdf/:id", async (req, res) => {
   const { id } = req.params;
-  const pdf = await new ResumeService(resumeTemplateNo).renderPDF(id);
+  // const pdf = await new ResumeService(resumeTemplateNo).renderPDF(id);
   // if (pdf == undefined) {
   //   res.header("Content-type", "application/json");
   //   res.send({
@@ -22,10 +22,10 @@ router.get("/get-pdf/:id", async (req, res) => {
   //       "sorry, due to save cost on server we have to delete stale pdfs. please fill the form again.",
   //   });
   // } else {
-  console.log("pdf", pdf);
+  // console.log("pdf", pdf);
 
-  res.header("Content-type", "application/pdf");
-  res.send(pdf);
+  // res.header("Content-type", "application/pdf");
+  // res.send(pdf);
   // }
 });
 

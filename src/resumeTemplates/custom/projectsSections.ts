@@ -1,21 +1,21 @@
 import { checkHyperlink } from "../../Helpers/checkHyperlink";
 import { FormStyles } from "../../interfaces/FormStyles";
-import { Project } from "../../interfaces/Project";
+import { Project, Projects } from "../../interfaces/Project";
 import { SectionStyles } from "./_SectionStyles";
 
 export const projectsSection1 = (
-  projects: { x: number; y: number; w: number; h: number; data: Project[] },
+  projects: { x: number; y: number; w: number; h: number; data: Projects },
   formStyles: FormStyles
 ) => {
   return /*html*/ `
     <div style="${SectionStyles.sectionWrapper({ x: projects.x, y: projects.y, w: projects.w, h: projects.h })}" >
       <div style="${SectionStyles.blockTitleDiv(formStyles)}">
-        <h2 style="${SectionStyles.blockTitleH2(formStyles)}"">
-          Projects
+        <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
+          ${projects.data.title}
         </h2>
       </div>
       <!--<h2 style="font-weight: 600; margin-bottom: 0px; color: #123456">Projects</h2>-->
-      ${projects.data
+      ${projects.data.data
         .map((eachProject) => {
           return /*html*/ `
           <!-- Project Name -->

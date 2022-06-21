@@ -1,4 +1,4 @@
-import { Course } from "../../interfaces/Course";
+import { Course, Educations } from "../../interfaces/Educations";
 import { FormStyles } from "../../interfaces/FormStyles";
 import { SectionStyles } from "./_SectionStyles";
 
@@ -8,7 +8,7 @@ export const educationsSection1 = (
     y: number;
     w: number;
     h: number;
-    data: Course[];
+    data: Educations;
   },
   formStyles: FormStyles
 ): string => {
@@ -16,12 +16,12 @@ export const educationsSection1 = (
   return /*html*/ `
   <div style="${SectionStyles.sectionWrapper({ x: educations.x, y: educations.y, w: educations.w, h: educations.h })}">
     <div style="${SectionStyles.blockTitleDiv(formStyles)}">
-      <h2 style="${SectionStyles.blockTitleH2(formStyles)}"">
-        Education
+      <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
+        ${educations.data.title}
       </h2>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: space-between;">
-      ${educations.data
+      ${educations.data.data
         .map((course) => {
           return /*html*/ `
             <div style="display: flex; justify-content: start; align-items: center; margin: 0px 0px 8px 0px;">

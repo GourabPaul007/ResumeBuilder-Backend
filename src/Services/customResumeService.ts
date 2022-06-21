@@ -11,7 +11,7 @@ import { worksSection1 } from "../resumeTemplates/custom/worksSection";
 import { About } from "../interfaces/About";
 import { Project } from "../interfaces/Project";
 import { Work } from "../interfaces/Work";
-import { Course } from "../interfaces/Course";
+import { Course } from "../interfaces/Educations";
 import { FormStyles } from "../interfaces/FormStyles";
 
 const organizeData = (element: any, formStyles: FormStyles) => {

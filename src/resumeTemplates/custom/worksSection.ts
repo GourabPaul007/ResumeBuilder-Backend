@@ -1,20 +1,20 @@
 import { checkHyperlink } from "../../Helpers/checkHyperlink";
 import { FormStyles } from "../../interfaces/FormStyles";
-import { Work } from "../../interfaces/Work";
+import { Work, Works } from "../../interfaces/Work";
 import { SectionStyles } from "./_SectionStyles";
 
 export const worksSection1 = (
-  works: { x: number; y: number; w: number; h: number; data: Work[] },
+  works: { x: number; y: number; w: number; h: number; data: Works },
   formStyles: FormStyles
 ) => {
   return /*html*/ `
     <div style="${SectionStyles.sectionWrapper({ x: works.x, y: works.y, w: works.w, h: works.h })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles)}">
-        <h2 style="${SectionStyles.blockTitleH2(formStyles)}"">
-          Work History
+        <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
+          ${works.data.title}
         </h2>
       </div>
-      ${works.data
+      ${works.data.data
         .map((eachWork) => {
           return /*html*/ `
             <!-- Work Name -->

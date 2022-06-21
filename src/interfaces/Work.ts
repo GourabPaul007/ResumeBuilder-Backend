@@ -3,3 +3,8 @@ export interface Work {
   workOrganizationName: string;
   workDetails: string[];
 }
+
+export interface Works {
+  title: string;
+  data: Work[];
+}

@@ -4,3 +4,8 @@ export interface Course {
   courseResults: string;
   courseDuration: string;
 }
+
+export interface Educations {
+  title: string;
+  data: Course[];
+}
