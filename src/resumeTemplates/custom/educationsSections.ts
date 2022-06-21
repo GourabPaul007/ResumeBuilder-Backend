@@ -14,7 +14,13 @@ export const educationsSection1 = (
 ): string => {
   // style=${SectionStyles.sectionWrapper(educations.x, educations.y, educations.w, educations.h)
   return /*html*/ `
-  <div style="${SectionStyles.sectionWrapper({ x: educations.x, y: educations.y, w: educations.w, h: educations.h })}">
+  <div style="${SectionStyles.sectionWrapper({
+    x: educations.x,
+    y: educations.y,
+    w: educations.w,
+    h: educations.h,
+    bg: "green",
+  })}">
     <div style="${SectionStyles.blockTitleDiv(formStyles)}">
       <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
         ${educations.data.title}

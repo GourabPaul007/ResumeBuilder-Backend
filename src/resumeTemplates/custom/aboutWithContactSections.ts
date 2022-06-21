@@ -14,7 +14,7 @@ export const aboutWithContactSection1 = (
   formStyles: FormStyles
 ): string => {
   return /*html*/ `
-    <div style="${SectionStyles.sectionWrapper({ x: about.x, y: about.y, w: about.w, h: about.h })}">
+    <div style="${SectionStyles.sectionWrapper({ x: about.x, y: about.y, w: about.w, h: about.h, bg: "black" })}">
       <h1 style="font-weight: 600; margin-bottom: 0px; padding-top: 4px; display: inline-block">${about.data.name}</h1>
       <p style="display: inline-block">&nbsp;&nbsp;${about.data.profession}</p>
       <div style="display: flex; flex-direction: row">

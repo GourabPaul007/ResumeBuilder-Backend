@@ -7,13 +7,13 @@ export const skillsSection1 = (
   formStyles: FormStyles
 ): string => {
   return /*html*/ `<div
-    style="${SectionStyles.sectionWrapper({ x: skills.x, y: skills.y, w: skills.w, h: skills.h })}">
+    style="${SectionStyles.sectionWrapper({ x: skills.x, y: skills.y, w: skills.w, h: skills.h, bg: "pink" })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
           ${skills.data.title}
         </h2>
       </div>
-      <div style="padding-left: 8px; font-weight: 500;">
+      <div style="padding-left: 4px; font-weight: 500;">
         ${skills.data.data
           .map((eachSkill: string) => {
             return `<div

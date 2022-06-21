@@ -1,17 +1,18 @@
 import { FormStyles } from "../../interfaces/FormStyles";
 
 export class SectionStyles {
-  static sectionWrapper({ x, y, w, h }: { x: number; y: number; w: number; h: number }): string {
+  static sectionWrapper({ x, y, w, h, bg }: { x: number; y: number; w: number; h: number; bg?: string }): string {
+    // added +10 to height to cover up the blank spaces between blocks
     return `
       position: absolute;
-      padding-left: 20px;
-      padding-right: 20px;
-      background-color: transparent;
+      padding-left: 28px;
+      padding-right: 28px;
+      background-color: ${bg ? bg : "transparent"};
       overflow: hidden;
       left: ${x * 17.5}mm;
       top: ${y * 20 + (y - 1) * 10}px;
       width: ${w * 17.5}mm;
-      height: ${h * 20 + (h - 1) * 10}px;
+      height: ${h * 20 + (h - 1) * 10 + 10}px;
     `;
   }
 
@@ -26,6 +27,7 @@ export class SectionStyles {
   static blockTitleH2(formStyles: FormStyles): string {
     return `
       font-weight: 600;
+      font-size: 24px;
       display: inline-block;
       padding: 2px 4px 2px ${formStyles.titleFilled ? 4 : 0}px;
       margin: 0px;

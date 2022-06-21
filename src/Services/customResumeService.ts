@@ -77,7 +77,7 @@ export const makePdf = async (blocks: any[], formStyles: FormStyles) => {
   const pdf = await page.pdf({
     format: "a4",
     printBackground: true,
-    margin: { left: 8, right: 8, top: 24, bottom: 24 },
+    margin: { left: 0, right: 0, top: 24, bottom: 24 },
   });
   await browser.close();
   return pdf;
