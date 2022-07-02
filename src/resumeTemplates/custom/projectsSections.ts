@@ -25,9 +25,7 @@ export const projectsSection1 = (
         .map((eachProject) => {
           return /*html*/ `
           <!-- Project Name -->
-          <h4 style="font-weight: 600; margin-left: 8px; margin-bottom: 8px; margin-top: 12px;">${
-            eachProject.projectName
-          }</h4>
+          <h4 style="font-size: 20px; font-weight: 600; margin: 12px 0px 4px 8px;">${eachProject.projectName}</h4>
           <!-- Project Details -->
           <div style="margin-bottom: 4px; margin-left: 16px">
             ${eachProject.projectDetails

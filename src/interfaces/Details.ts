@@ -1,13 +1,13 @@
 import { Projects } from "./Project";
 import { Works } from "./Work";
 import { Educations } from "./Educations";
-import { About } from "./About";
+import { AboutWithContact } from "./AboutWithContact";
 import { FormStyles } from "./FormStyles";
 import { Skills } from "./Skills";
 import { Others } from "./Others";
 
 export interface Details {
-  about: About;
+  about: AboutWithContact;
   educations: Educations;
   skills: Skills;
   works: Works;

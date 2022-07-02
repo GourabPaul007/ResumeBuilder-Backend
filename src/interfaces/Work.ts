@@ -2,6 +2,7 @@ export interface Work {
   // id: string;
   workOrganizationName: string;
   workDetails: string[];
+  workDuration: string;
 }
 
 export interface Works {

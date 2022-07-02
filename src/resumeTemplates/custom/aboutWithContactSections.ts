@@ -1,28 +1,36 @@
 import { checkHyperlink } from "../../Helpers/checkHyperlink";
-import { About } from "../../interfaces/About";
+import { AboutWithContact } from "../../interfaces/AboutWithContact";
 import { FormStyles } from "../../interfaces/FormStyles";
 import { SectionStyles } from "./_SectionStyles";
 
 export const aboutWithContactSection1 = (
-  about: {
+  aboutWithContact: {
     x: number;
     y: number;
     w: number;
     h: number;
-    data: About;
+    data: AboutWithContact;
   },
   formStyles: FormStyles
 ): string => {
   return /*html*/ `
-    <div style="${SectionStyles.sectionWrapper({ x: about.x, y: about.y, w: about.w, h: about.h, bg: "black" })}">
-      <h1 style="font-weight: 600; margin-bottom: 0px; padding-top: 4px; display: inline-block">${about.data.name}</h1>
-      <p style="display: inline-block">&nbsp;&nbsp;${about.data.profession}</p>
+    <div style="${SectionStyles.sectionWrapper({
+      x: aboutWithContact.x,
+      y: aboutWithContact.y,
+      w: aboutWithContact.w,
+      h: aboutWithContact.h,
+      bg: "black",
+    })}">
+      <h1 style="font-weight: 600; margin-bottom: 0px; padding-top: 4px; display: inline-block">${
+        aboutWithContact.data.name
+      }</h1>
+      <p style="display: inline-block">&nbsp;&nbsp;${aboutWithContact.data.profession}</p>
       <div style="display: flex; flex-direction: row">
 
-        <!-- the about extra -->
+        <!-- the aboutWithContact extra -->
         <div style="padding-right: 4px; padding-left: 4px; flex: 59%">
           <p>
-            ${about.data.about}
+            ${aboutWithContact.data.about}
           </p>
         </div>
         <div style="flex: 2%"></div>
@@ -32,7 +40,7 @@ export const aboutWithContactSection1 = (
           <div style="display: flex; margin-bottom: 8px">
             <i class="bi bi-geo-alt-fill text-danger"></i>
             <div>
-              ${about.data.address
+              ${aboutWithContact.data.address
                 .map((element) => {
                   return `<div style="margin-left: 8px">${element}</div>`;
                 })
@@ -44,7 +52,7 @@ export const aboutWithContactSection1 = (
             <i class="bi bi-envelope-fill text-primary"></i>
             <!-- emails, for flex reasons -->
             <div style="margin-bottom: 2px; margin-left: 8px">
-              ${about.data.emails
+              ${aboutWithContact.data.emails
                 .map((element) => {
                   return `<div style="margin-bottom: 0px">${checkHyperlink(element)}</div>`;
                 })
@@ -53,7 +61,7 @@ export const aboutWithContactSection1 = (
           </div>
           <div>
             <i class="bi bi-telephone-fill text-success"></i>
-            <span style="margin-left:8px">${about.data.phno}</span>
+            <span style="margin-left:8px">${aboutWithContact.data.phno}</span>
           </div>
         </div>
       </div>

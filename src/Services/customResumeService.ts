@@ -8,11 +8,13 @@ import { othersSection1 } from "../resumeTemplates/custom/othersSections";
 import { projectsSection1 } from "../resumeTemplates/custom/projectsSections";
 import { skillsSection1 } from "../resumeTemplates/custom/skillsSections";
 import { worksSection1 } from "../resumeTemplates/custom/worksSection";
-import { About } from "../interfaces/About";
+import { AboutWithContact } from "../interfaces/AboutWithContact";
 import { Project } from "../interfaces/Project";
 import { Work } from "../interfaces/Work";
 import { Course } from "../interfaces/Educations";
 import { FormStyles } from "../interfaces/FormStyles";
+import { AboutSection1 } from "../resumeTemplates/custom/AboutSections";
+import { ContactSection1 } from "../resumeTemplates/custom/ContactSections";
 
 const organizeData = (element: any, formStyles: FormStyles) => {
   // details.forEach(
@@ -27,17 +29,21 @@ const organizeData = (element: any, formStyles: FormStyles) => {
   console.log("element", element);
 
   switch (element.name) {
-    case "about":
+    case "aboutwithcontact1":
       return aboutWithContactSection1(element, formStyles);
-    case "educations":
+    case "about1":
+      return AboutSection1(element, formStyles);
+    case "contact1":
+      return ContactSection1(element, formStyles);
+    case "educations1":
       return educationsSection1(element, formStyles);
-    case "skills":
+    case "skills1":
       return skillsSection1(element, formStyles);
-    case "works":
+    case "works1":
       return worksSection1(element, formStyles);
-    case "projects":
+    case "projects1":
       return projectsSection1(element, formStyles);
-    case "others":
+    case "others1":
       return othersSection1(element, formStyles);
     default:
       break;

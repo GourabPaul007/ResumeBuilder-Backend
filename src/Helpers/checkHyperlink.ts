@@ -32,7 +32,7 @@ export const checkHyperlink = (str: string): any => {
       // }
       // element = hyperLink;
     } else {
-      newArray.push(`<span>${element}</span> `);
+      newArray.push(`${element} `);
     }
   }
   console.log(`<p>${newArray.join(" ")}</p>`);

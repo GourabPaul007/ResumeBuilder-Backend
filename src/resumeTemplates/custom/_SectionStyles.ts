@@ -7,7 +7,7 @@ export class SectionStyles {
       position: absolute;
       padding-left: 28px;
       padding-right: 28px;
-      background-color: ${bg ? bg : "transparent"};
+      background-color: ${bg ? "transparent" : "transparent"};
       overflow: hidden;
       left: ${x * 17.5}mm;
       top: ${y * 20 + (y - 1) * 10}px;
