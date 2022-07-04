@@ -3,7 +3,7 @@ import { FormStyles } from "../../interfaces/FormStyles";
 import { Project, Projects } from "../../interfaces/Project";
 import { SectionStyles } from "./_SectionStyles";
 
-export const projectsSection1 = (
+export const ProjectsSection1 = (
   projects: { x: number; y: number; w: number; h: number; data: Projects },
   formStyles: FormStyles
 ) => {

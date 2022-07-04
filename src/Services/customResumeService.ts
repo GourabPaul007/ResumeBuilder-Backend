@@ -2,12 +2,12 @@ import ejs from "ejs";
 import puppeteer from "puppeteer";
 import path from "path";
 import { checkHyperlink } from "../Helpers/checkHyperlink";
-import { aboutWithContactSection1 } from "../resumeTemplates/custom/aboutWithContactSections";
-import { educationsSection1 } from "../resumeTemplates/custom/educationsSections";
-import { othersSection1 } from "../resumeTemplates/custom/othersSections";
-import { projectsSection1 } from "../resumeTemplates/custom/projectsSections";
-import { skillsSection1 } from "../resumeTemplates/custom/skillsSections";
-import { worksSection1 } from "../resumeTemplates/custom/worksSection";
+import { AboutWithContactSection1 } from "../resumeTemplates/custom/aboutWithContactSections";
+import { EducationsSection1 } from "../resumeTemplates/custom/educationsSections";
+import { OthersSection1 } from "../resumeTemplates/custom/othersSections";
+import { ProjectsSection1 } from "../resumeTemplates/custom/projectsSections";
+import { SkillsSection1, SkillsSection2 } from "../resumeTemplates/custom/skillsSections";
+import { WorksSection1 } from "../resumeTemplates/custom/worksSection";
 import { AboutWithContact } from "../interfaces/AboutWithContact";
 import { Project } from "../interfaces/Project";
 import { Work } from "../interfaces/Work";
@@ -15,6 +15,7 @@ import { Course } from "../interfaces/Educations";
 import { FormStyles } from "../interfaces/FormStyles";
 import { AboutSection1 } from "../resumeTemplates/custom/AboutSections";
 import { ContactSection1 } from "../resumeTemplates/custom/ContactSections";
+import { RatingsSection1 } from "../resumeTemplates/custom/RatingsSections";
 
 const organizeData = (element: any, formStyles: FormStyles) => {
   // details.forEach(
@@ -30,21 +31,25 @@ const organizeData = (element: any, formStyles: FormStyles) => {
 
   switch (element.name) {
     case "aboutwithcontact1":
-      return aboutWithContactSection1(element, formStyles);
+      return AboutWithContactSection1(element, formStyles);
     case "about1":
       return AboutSection1(element, formStyles);
     case "contact1":
       return ContactSection1(element, formStyles);
     case "educations1":
-      return educationsSection1(element, formStyles);
+      return EducationsSection1(element, formStyles);
     case "skills1":
-      return skillsSection1(element, formStyles);
+      return SkillsSection1(element, formStyles);
+    case "skills2":
+      return SkillsSection2(element, formStyles);
     case "works1":
-      return worksSection1(element, formStyles);
+      return WorksSection1(element, formStyles);
     case "projects1":
-      return projectsSection1(element, formStyles);
+      return ProjectsSection1(element, formStyles);
+    case "ratings1":
+      return RatingsSection1(element, formStyles);
     case "others1":
-      return othersSection1(element, formStyles);
+      return OthersSection1(element, formStyles);
     default:
       break;
   }

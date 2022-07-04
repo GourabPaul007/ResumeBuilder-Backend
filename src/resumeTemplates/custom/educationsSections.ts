@@ -2,7 +2,7 @@ import { Course, Educations } from "../../interfaces/Educations";
 import { FormStyles } from "../../interfaces/FormStyles";
 import { SectionStyles } from "./_SectionStyles";
 
-export const educationsSection1 = (
+export const EducationsSection1 = (
   educations: {
     x: number;
     y: number;

@@ -3,7 +3,7 @@ import { FormStyles } from "../../interfaces/FormStyles";
 import { Work, Works } from "../../interfaces/Work";
 import { SectionStyles } from "./_SectionStyles";
 
-export const worksSection1 = (
+export const WorksSection1 = (
   works: { x: number; y: number; w: number; h: number; data: Works },
   formStyles: FormStyles
 ) => {

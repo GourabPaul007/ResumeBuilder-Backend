@@ -3,7 +3,7 @@ import { AboutWithContact } from "../../interfaces/AboutWithContact";
 import { FormStyles } from "../../interfaces/FormStyles";
 import { SectionStyles } from "./_SectionStyles";
 
-export const aboutWithContactSection1 = (
+export const AboutWithContactSection1 = (
   aboutWithContact: {
     x: number;
     y: number;
@@ -21,9 +21,7 @@ export const aboutWithContactSection1 = (
       h: aboutWithContact.h,
       bg: "black",
     })}">
-      <h1 style="font-weight: 600; margin-bottom: 0px; padding-top: 4px; display: inline-block">${
-        aboutWithContact.data.name
-      }</h1>
+      <h1 style="font-weight: 600; margin-bottom: 0px; display: inline-block">${aboutWithContact.data.name}</h1>
       <p style="display: inline-block">&nbsp;&nbsp;${aboutWithContact.data.profession}</p>
       <div style="display: flex; flex-direction: row">
 

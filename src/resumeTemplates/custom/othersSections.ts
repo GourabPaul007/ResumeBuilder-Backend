@@ -2,7 +2,7 @@ import { FormStyles } from "../../interfaces/FormStyles";
 import { Others } from "../../interfaces/Others";
 import { SectionStyles } from "./_SectionStyles";
 
-export const othersSection1 = (
+export const OthersSection1 = (
   others: { x: number; y: number; w: number; h: number; data: Others },
   formStyles: FormStyles
 ) => {
