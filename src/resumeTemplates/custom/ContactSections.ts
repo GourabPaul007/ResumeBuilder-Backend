@@ -49,3 +49,48 @@ export const ContactSection1 = (
   </div>
   `;
 };
+
+export const ContactSection2 = (
+  contact: {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    data: Contact;
+  },
+  formStyles: FormStyles
+) => {
+  return /* html */ `
+  <div style="${SectionStyles.sectionWrapper({
+    x: contact.x,
+    y: contact.y,
+    w: contact.w,
+    h: contact.h,
+    // bg: "black",
+  })}">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; font-weight: 500; font-size: 14px; margin-top: 18px;">
+      <div style="display: flex; align-items: center; margin: 4px">
+        ${getIcon({ name: "address", color: formStyles.accentColor })}
+        &nbsp;&nbsp;${contact.data.address}
+      </div>
+      <div style=" display: flex; align-items: center; margin: 4px">
+        ${getIcon({ name: "phone", color: formStyles.accentColor })}
+        &nbsp;&nbsp;${contact.data.phno}
+      </div>
+      ${contact.data.emails
+        .map((eachLink) => {
+          return /* html */ `
+          <div key={eachLink} style="display: flex; align-items: center; margin: 4px">
+            ${getIcon({
+              name: getUrlDomainName(eachLink),
+              color: formStyles.accentColor,
+            })}
+            &nbsp;&nbsp;${eachLink}
+          </div>
+        `;
+        })
+        .join("")}
+    </div>
+  </div>
+  `;
+};

@@ -3,7 +3,7 @@ import puppeteer from "puppeteer";
 import path from "path";
 import { checkHyperlink } from "../Helpers/checkHyperlink";
 import { AboutWithContactSection1 } from "../resumeTemplates/custom/aboutWithContactSections";
-import { EducationsSection1 } from "../resumeTemplates/custom/educationsSections";
+import { EducationsSection1 } from "../resumeTemplates/custom/EducationsSections";
 import { OthersSection1 } from "../resumeTemplates/custom/othersSections";
 import { ProjectsSection1 } from "../resumeTemplates/custom/projectsSections";
 import { SkillsSection1, SkillsSection2 } from "../resumeTemplates/custom/skillsSections";
@@ -14,7 +14,7 @@ import { Work } from "../interfaces/Work";
 import { Course } from "../interfaces/Educations";
 import { FormStyles } from "../interfaces/FormStyles";
 import { AboutSection1 } from "../resumeTemplates/custom/AboutSections";
-import { ContactSection1 } from "../resumeTemplates/custom/ContactSections";
+import { ContactSection1, ContactSection2 } from "../resumeTemplates/custom/ContactSections";
 import { RatingsSection1 } from "../resumeTemplates/custom/RatingsSections";
 
 const organizeData = (element: any, formStyles: FormStyles) => {
@@ -36,6 +36,8 @@ const organizeData = (element: any, formStyles: FormStyles) => {
       return AboutSection1(element, formStyles);
     case "contact1":
       return ContactSection1(element, formStyles);
+    case "contact2":
+      return ContactSection2(element, formStyles);
     case "educations1":
       return EducationsSection1(element, formStyles);
     case "skills1":
