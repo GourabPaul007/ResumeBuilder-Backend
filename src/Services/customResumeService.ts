@@ -3,7 +3,7 @@ import puppeteer from "puppeteer";
 import path from "path";
 import { checkHyperlink } from "../Helpers/checkHyperlink";
 import { AboutWithContactSection1 } from "../resumeTemplates/custom/aboutWithContactSections";
-import { EducationsSection1 } from "../resumeTemplates/custom/EducationsSections";
+import { EducationsSection1, EducationsSection2 } from "../resumeTemplates/custom/EducationsSections";
 import { OthersSection1 } from "../resumeTemplates/custom/othersSections";
 import { ProjectsSection1 } from "../resumeTemplates/custom/projectsSections";
 import { SkillsSection1, SkillsSection2 } from "../resumeTemplates/custom/skillsSections";
@@ -40,6 +40,8 @@ const organizeData = (element: any, formStyles: FormStyles) => {
       return ContactSection2(element, formStyles);
     case "educations1":
       return EducationsSection1(element, formStyles);
+    case "educations2":
+      return EducationsSection2(element, formStyles);
     case "skills1":
       return SkillsSection1(element, formStyles);
     case "skills2":
