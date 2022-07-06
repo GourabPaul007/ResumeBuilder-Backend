@@ -20,15 +20,12 @@ export const ProjectsSection1 = (
           ${projects.data.title}
         </h2>
       </div>
-      <!--<h2 style="font-weight: 600; margin-bottom: 0px; color: #123456">Projects</h2>-->
       ${projects.data.data
         .map((eachProject) => {
           return /*html*/ `
           <div style="margin: 4px 0px 0px 12px; font-size: 15px">
-            <!-- Project Name -->
-            <h4 style="font-size: 20px; font-weight: 600; margin: 0px;">${eachProject.projectName}</h4>
-            <!-- Project Details -->
-            <div style="margin-bottom: 4px; margin-left: 16px">
+            <h4 style="font-size: 20px; font-weight: 600; margin: 8px 0px 4px 0px;">${eachProject.projectName}</h4>
+            <div style="margin: 0px 0px 4px 16px;">
               ${eachProject.projectDetails
                 .map((detail) => {
                   return /*html*/ `

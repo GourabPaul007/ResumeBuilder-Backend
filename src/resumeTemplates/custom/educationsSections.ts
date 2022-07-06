@@ -84,7 +84,7 @@ export const EducationsSection2 = (
         ${educations.data.title}
       </h2>
     </div>
-    <div style="display: flex; justify-content: space-evenly; align-items: flex-start; margin: 0px 4px; width: 100%;">
+    <div style="display: flex; justify-content: space-evenly; align-items: flex-start; margin: 16px 4px; width: 100%;">
       ${educations.data.data
         .map((course) => {
           return /*html*/ `

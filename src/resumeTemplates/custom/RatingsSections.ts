@@ -7,8 +7,16 @@ import { SectionStyles } from "./_SectionStyles";
 function getStarsArray(numberOfRatesInStar: number, type: string, color: string) {
   return `
     <div>
-      ${[...Array(numberOfRatesInStar)].map((e, i) => getIcon({ name: type + "fill", color })).join("")}
-      ${[...Array(5 - numberOfRatesInStar)].map((e, i) => getIcon({ name: type + "empty", color })).join("")}
+      ${[...Array(numberOfRatesInStar)]
+        .map((e, i) => {
+          return `&hairsp;${getIcon({ name: type + "fill", color })}`;
+        })
+        .join("")}
+      ${[...Array(5 - numberOfRatesInStar)]
+        .map((e, i) => {
+          return `&hairsp;${getIcon({ name: type + "empty", color })}`;
+        })
+        .join("")}
     </div>
   `;
 }
@@ -30,7 +38,7 @@ export const RatingsSection1 = (
         ${ratings.data.title}
       </h2>
     </div>
-    <div style="padding-left: 8; font-size: 15; font-weight: 500;">
+    <div style="padding: 0px 8px; font-size: 15px; font-weight: 500;">
       ${ratings.data.data
         .map((eachRating, i) => {
           return /*html*/ `

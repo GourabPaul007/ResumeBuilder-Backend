@@ -11,9 +11,9 @@ export class SectionStyles {
       background-color: ${bg ? "transparent" : "transparent"};
       overflow: hidden;
       left: ${x * 17.5}mm;
-      top: ${y * 20 + (y - 1) * 10}px;
+      top: ${y * 10 + (y - 1) * 10}px;
       width: ${w * 17.5}mm;
-      height: ${h * 20 + (h - 1) * 10 + 10}px;
+      height: ${h * 10 + (h - 1) * 10 + 10}px;
     `;
   }
 
@@ -35,6 +35,7 @@ export class SectionStyles {
       color: ${formStyles.titleColor};
       background-color: ${formStyles.titleFilled ? formStyles.titleFillColor : "transparent"};
       width: ${formStyles.titleFullWidth ? "100%" : "fit-content"};
+      border-radius: 5px;
     `;
   }
 }

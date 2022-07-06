@@ -23,7 +23,7 @@ export const ContactSection1 = (
     h: contact.h,
     // bg: "black",
   })}">
-    <div style="display: flex; flex-direction: column; align-items: flex-end; font-weight: 500; font-size: 14px; margin-top: 18px;">
+    <div style="display: flex; flex-direction: column; align-items: flex-end; font-weight: 500; font-size: 14px; margin-top: 14px;">
       <div style="display: flex; align-items: center; margin: 4px">
         ${contact.data.address}&nbsp;&nbsp;
         ${getIcon({ name: "address", color: formStyles.accentColor })}
@@ -68,7 +68,7 @@ export const ContactSection2 = (
     h: contact.h,
     // bg: "black",
   })}">
-    <div style="display: flex; flex-direction: column; align-items: flex-start; font-weight: 500; font-size: 14px; margin-top: 18px;">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; font-weight: 500; font-size: 14px; margin-top: 14px;">
       <div style="display: flex; align-items: center; margin: 4px">
         ${getIcon({ name: "address", color: formStyles.accentColor })}
         &nbsp;&nbsp;${contact.data.address}
