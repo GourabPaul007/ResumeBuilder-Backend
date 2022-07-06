@@ -24,7 +24,7 @@ export const checkHyperlink = (str: string): any => {
       const word = element.substring(0, startIndex - 1);
       const endIndexOfLink = element.indexOf(")", startIndex);
       const url = element.substring(startIndex, endIndexOfLink);
-      hyperLink = `<a href="${url}" style="text-decoration: none;">${word}</a>`;
+      hyperLink = `<a href="${url}" style="text-decoration: none; color: inherit">${word}</a>`;
       newArray.push(hyperLink);
       // manages stuff if user added comma(,) or dot(.) after the end of parenthesis.
       // if (element.length > endIndexOfLink) {

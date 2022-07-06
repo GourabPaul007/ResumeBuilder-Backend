@@ -2,16 +2,12 @@ import ejs from "ejs";
 import puppeteer from "puppeteer";
 import path from "path";
 import { checkHyperlink } from "../Helpers/checkHyperlink";
-import { AboutWithContactSection1 } from "../resumeTemplates/custom/aboutWithContactSections";
+import { AboutWithContactSection1, AboutWithContactSection2 } from "../resumeTemplates/custom/aboutWithContactSections";
 import { EducationsSection1, EducationsSection2 } from "../resumeTemplates/custom/EducationsSections";
 import { OthersSection1 } from "../resumeTemplates/custom/othersSections";
 import { ProjectsSection1 } from "../resumeTemplates/custom/projectsSections";
 import { SkillsSection1, SkillsSection2 } from "../resumeTemplates/custom/skillsSections";
 import { WorksSection1 } from "../resumeTemplates/custom/worksSection";
-import { AboutWithContact } from "../interfaces/AboutWithContact";
-import { Project } from "../interfaces/Project";
-import { Work } from "../interfaces/Work";
-import { Course } from "../interfaces/Educations";
 import { FormStyles } from "../interfaces/FormStyles";
 import { AboutSection1 } from "../resumeTemplates/custom/AboutSections";
 import { ContactSection1, ContactSection2 } from "../resumeTemplates/custom/ContactSections";
@@ -32,6 +28,8 @@ const organizeData = (element: any, formStyles: FormStyles) => {
   switch (element.name) {
     case "aboutwithcontact1":
       return AboutWithContactSection1(element, formStyles);
+    case "aboutwithcontact2":
+      return AboutWithContactSection2(element, formStyles);
     case "about1":
       return AboutSection1(element, formStyles);
     case "contact1":
@@ -71,14 +69,6 @@ export const makePdf = async (blocks: any[], formStyles: FormStyles) => {
       return organizeData(blockDetail, formStyles);
     }),
     formStyles: formStyles,
-    // [
-    //   aboutsSection1(details[0]),
-    //   worksSection1(details[5]),
-    //   projectsSection1(details[1]),
-    //   educationsSection1(details[3]),
-    //   skillsSection1(details[2]),
-    //   othersSection1(details[4]),
-    // ],
   });
   // Puppeteer
   const browser = await puppeteer.launch({

@@ -24,25 +24,20 @@ export const ProjectsSection1 = (
       ${projects.data.data
         .map((eachProject) => {
           return /*html*/ `
-          <!-- Project Name -->
-          <h4 style="font-size: 20px; font-weight: 600; margin: 12px 0px 4px 8px;">${eachProject.projectName}</h4>
-          <!-- Project Details -->
-          <div style="margin-bottom: 4px; margin-left: 16px">
-            ${eachProject.projectDetails
-              .map((detail) => {
-                return `<div
-                  key={detail}
-                  style={{
-                    display: flex,
-                    flex-direction: row,
-                    justify-content: start,
-                    align-items: "start",
-                  }}
-                >
-                  ${checkHyperlink(detail)}
-                </div>`;
-              })
-              .join("")}
+          <div style="margin: 4px 0px 0px 12px; font-size: 15px">
+            <!-- Project Name -->
+            <h4 style="font-size: 20px; font-weight: 600; margin: 0px;">${eachProject.projectName}</h4>
+            <!-- Project Details -->
+            <div style="margin-bottom: 4px; margin-left: 16px">
+              ${eachProject.projectDetails
+                .map((detail) => {
+                  return /*html*/ `
+                    <div key=${detail} style="display: flex; flex-direction: row; justify-content: start; align-items: start;">
+                      ${checkHyperlink(detail)}
+                    </div>`;
+                })
+                .join("")}
+            </div>
           </div>
         `;
         })
