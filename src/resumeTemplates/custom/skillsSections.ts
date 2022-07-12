@@ -8,12 +8,18 @@ export const SkillsSection1 = (
 ): string => {
   return /*html*/ `<div
     style="${SectionStyles.sectionWrapper({ x: skills.x, y: skills.y, w: skills.w, h: skills.h, bg: "pink" })}">
-      <div style="${SectionStyles.blockTitleDiv(formStyles)}">
+      <div style="${SectionStyles.blockTitleDiv(formStyles, skills.data.flipped)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
           ${skills.data.title}
         </h2>
       </div>
-      <div style="font-weight: 500;">
+      <!-- for aligning to left or right -->
+      <div style="
+        font-weight: 500;
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: ${skills.data.flipped ? "row-reverse" : "row"};
+      ">
         ${skills.data.data
           .map((eachSkill: string) => {
             return `<div
@@ -40,12 +46,19 @@ export const SkillsSection2 = (
 ): string => {
   return /*html*/ `<div
     style="${SectionStyles.sectionWrapper({ x: skills.x, y: skills.y, w: skills.w, h: skills.h, bg: "pink" })}">
-      <div style="${SectionStyles.blockTitleDiv(formStyles)}">
+      <div style="${SectionStyles.blockTitleDiv(formStyles, skills.data.flipped)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
           ${skills.data.title}
         </h2>
       </div>
-      <div style="padding-left: 4px; font-weight: 500;">
+      <!-- for aligning to left or right -->
+      <div style="
+        padding-left: 4px; 
+        font-weight: 500;
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: ${skills.data.flipped ? "row-reverse" : "row"};
+      ">
         ${skills.data.data
           .map((eachSkill: string) => {
             return `<div

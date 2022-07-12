@@ -17,11 +17,17 @@ export class SectionStyles {
     `;
   }
 
-  static blockTitleDiv(formStyles: FormStyles): string {
+  static blockTitleDiv(formStyles: FormStyles, flipped?: boolean): string {
     return `
-      border-bottom: 2px solid ${formStyles.titleUnderline ? formStyles.titleColor : "transparent"};
-      width: ${formStyles.titleFullWidth ? "100%" : "fit-content"}; 
-      margin-bottom: 6px;
+    display: flex;
+    justify-content: ${flipped ? "flex-end" : "flex-start"};
+    border-top: 2px solid ${formStyles.titleUnderline ? "transparent" : "transparent"};
+    border-bottom: 2px solid ${formStyles.titleUnderline ? formStyles.titleColor : "transparent"};
+    background-color: ${formStyles.titleFilled ? formStyles.titleFillColor : "transparent"};
+    width: ${formStyles.titleFullWidth ? "100%" : "fit-content"}; 
+    margin-bottom: 6px;
+    margin-left: ${flipped ? "auto" : "0px"};
+    border-radius: ${formStyles.titleFilled ? "5px" : "0px"};
     `;
   }
 
@@ -30,12 +36,9 @@ export class SectionStyles {
       font-weight: 600;
       font-size: 24px;
       display: inline-block;
-      padding: 2px 4px 2px ${formStyles.titleFilled ? 4 : 0}px;
+      padding: 2px 2px;
       margin: 0px;
       color: ${formStyles.titleColor};
-      background-color: ${formStyles.titleFilled ? formStyles.titleFillColor : "transparent"};
-      width: ${formStyles.titleFullWidth ? "100%" : "fit-content"};
-      border-radius: 5px;
     `;
   }
 }

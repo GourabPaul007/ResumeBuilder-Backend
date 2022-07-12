@@ -3,5 +3,6 @@ export interface Skills {
   chipRadius: number;
   title: string;
   filled: boolean;
+  flipped: boolean;
   data: string[];
 }

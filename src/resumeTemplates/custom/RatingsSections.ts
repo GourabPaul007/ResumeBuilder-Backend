@@ -33,7 +33,7 @@ export const RatingsSection1 = (
       h: ratings.h,
       bg: "blue",
     })}">
-    <div style="${SectionStyles.blockTitleDiv(formStyles)}">
+    <div style="${SectionStyles.blockTitleDiv(formStyles, ratings.data.flipped)}">
       <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
         ${ratings.data.title}
       </h2>
