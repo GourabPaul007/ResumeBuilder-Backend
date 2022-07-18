@@ -23,7 +23,7 @@ const organizeData = (element: any, formStyles: FormStyles) => {
   //     h: number;
   //     data: About | Project[] | Work[] | Course[] | string[]|any;
   //   }) => {
-  console.log("element", element);
+  console.log("element", element.data);
 
   switch (element.name) {
     case "aboutwithcontact1":

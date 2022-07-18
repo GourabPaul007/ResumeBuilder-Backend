@@ -6,8 +6,13 @@ export const SkillsSection1 = (
   skills: { x: number; y: number; w: number; h: number; data: Skills },
   formStyles: FormStyles
 ): string => {
-  return /*html*/ `<div
-    style="${SectionStyles.sectionWrapper({ x: skills.x, y: skills.y, w: skills.w, h: skills.h, bg: "pink" })}">
+  return /*html*/ `<div style="${SectionStyles.sectionWrapper({
+    x: skills.x,
+    y: skills.y,
+    w: skills.w,
+    h: skills.h,
+    bg: "pink",
+  })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles, skills.data.flipped)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
           ${skills.data.title}

@@ -3,3 +3,9 @@ export interface Contact {
   phno: string;
   emails: string[];
 }
+
+export interface ContactSection {
+  title: string;
+  flipped: boolean;
+  data: Contact;
+}

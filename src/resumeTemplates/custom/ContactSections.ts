@@ -1,7 +1,7 @@
 import { getUrlDomainName } from "../../Helpers/getUrlDomainName";
 import { getIcon } from "../../Helpers/Icons";
 import { About } from "../../interfaces/About";
-import { Contact } from "../../interfaces/Contact";
+import { Contact, ContactSection } from "../../interfaces/Contact";
 import { FormStyles } from "../../interfaces/FormStyles";
 import { SectionStyles } from "./_SectionStyles";
 
@@ -11,7 +11,7 @@ export const ContactSection1 = (
     y: number;
     w: number;
     h: number;
-    data: Contact;
+    data: ContactSection;
   },
   formStyles: FormStyles
 ) => {
@@ -23,19 +23,35 @@ export const ContactSection1 = (
     h: contact.h,
     // bg: "black",
   })}">
-    <div style="display: flex; flex-direction: column; align-items: flex-end; font-weight: 500; font-size: 14px; margin-top: 14px;">
-      <div style="display: flex; align-items: center; margin: 4px">
-        ${contact.data.address}&nbsp;&nbsp;
+    ${
+      contact.data.title === ""
+        ? ``
+        : `<div style="${SectionStyles.blockTitleDiv(formStyles, contact.data.flipped)}">
+            <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
+              ${contact.data.title}
+            </h2>
+          </div>`
+    }
+    <div style="
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: ${contact.data.title === "" ? 14 : 0}px;"
+    >
+      <div style="display: flex; align-items: center; margin: 3px">
+        ${contact.data.data.address}&nbsp;&nbsp;
         ${getIcon({ name: "address", color: formStyles.accentColor })}
       </div>
-      <div style=" display: flex; align-items: center; margin: 4px">
-        ${contact.data.phno}&nbsp;&nbsp;
+      <div style=" display: flex; align-items: center; margin: 3px">
+        ${contact.data.data.phno}&nbsp;&nbsp;
         ${getIcon({ name: "phone", color: formStyles.accentColor })}
       </div>
-      ${contact.data.emails
+      ${contact.data.data.emails
         .map((eachLink) => {
           return /* html */ `
-          <div key={eachLink} style="display: flex; align-items: center; margin: 4px">
+          <div key={eachLink} style="display: flex; align-items: center; margin: 3px">
             ${eachLink}&nbsp;&nbsp;
             ${getIcon({
               name: getUrlDomainName(eachLink),
@@ -56,7 +72,7 @@ export const ContactSection2 = (
     y: number;
     w: number;
     h: number;
-    data: Contact;
+    data: ContactSection;
   },
   formStyles: FormStyles
 ) => {
@@ -68,19 +84,34 @@ export const ContactSection2 = (
     h: contact.h,
     // bg: "black",
   })}">
-    <div style="display: flex; flex-direction: column; align-items: flex-start; font-weight: 500; font-size: 14px; margin-top: 14px;">
-      <div style="display: flex; align-items: center; margin: 4px">
+    ${
+      contact.data.title === ""
+        ? ``
+        : `<div style="${SectionStyles.blockTitleDiv(formStyles, contact.data.flipped)}">
+            <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
+              ${contact.data.title}
+            </h2>
+          </div>`
+    }
+    <div style="display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: ${contact.data.title === "" ? 14 : 0}px;"
+    >
+      <div style="display: flex; align-items: center; margin: 3px">
         ${getIcon({ name: "address", color: formStyles.accentColor })}
-        &nbsp;&nbsp;${contact.data.address}
+        &nbsp;&nbsp;${contact.data.data.address}
       </div>
-      <div style=" display: flex; align-items: center; margin: 4px">
+      <div style=" display: flex; align-items: center; margin: 3px">
         ${getIcon({ name: "phone", color: formStyles.accentColor })}
-        &nbsp;&nbsp;${contact.data.phno}
+        &nbsp;&nbsp;${contact.data.data.phno}
       </div>
-      ${contact.data.emails
+      ${contact.data.data.emails
         .map((eachLink) => {
           return /* html */ `
-          <div key={eachLink} style="display: flex; align-items: center; margin: 4px">
+          <div key={eachLink} style="display: flex; align-items: center; margin: 3px">
             ${getIcon({
               name: getUrlDomainName(eachLink),
               color: formStyles.accentColor,
