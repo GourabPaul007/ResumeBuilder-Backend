@@ -84,13 +84,14 @@ export const EducationsSection2 = (
         ${educations.data.title}
       </h2>
     </div>
-    <div style="display: flex; justify-content: space-evenly; align-items: flex-start; margin: 16px 4px; width: 100%;">
+    <div style="display: flex; justify-content: space-evenly; align-items: flex-start; margin: 4px; width: 100%;">
       ${educations.data.data
         .map((course) => {
           return /*html*/ `
             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0px 5px;">
               <div style="font-weight: 600; text-align: center;">${course.organizationName}</div>
-              <div style="font-weight: 500; text-align: center;">${course.courseName}, ${course.courseDuration}</div>
+              <div style="font-weight: 500; text-align: center; color: ${formStyles.accentColor}">${course.courseDuration}</div>
+              <div style="font-weight: 500; text-align: center;">${course.courseName}</div>
               <div style="font-weight: 500; text-align: center;">${course.courseResults}</div>
             </div>
           `;
