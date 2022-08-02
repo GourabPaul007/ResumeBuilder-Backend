@@ -31,7 +31,7 @@ export const SkillsSection1 = (
               style="
                 display: inline-block;
                 padding: 4px 8px;
-                margin: 4px;
+                margin: 4px 0px 4px 4px;
                 border: ${skills.data.filled ? "1px solid transparent" : `1px solid ${skills.data.color}`};
                 border-radius: ${skills.data.chipRadius}px;
                 color: ${skills.data.filled ? "#fff" : skills.data.color};
@@ -70,7 +70,7 @@ export const SkillsSection2 = (
               style="
                 display: inline-block;
                 padding: 4px 8px;
-                margin: 4px;
+                margin: 4px 0px 4px 4px;
                 border-radius: ${skills.data.chipRadius}px;
                 color: #fff;
                 background-color: ${skills.data.color};
