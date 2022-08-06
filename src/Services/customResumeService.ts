@@ -59,6 +59,10 @@ const organizeData = (element: any, formStyles: FormStyles) => {
   // );
 };
 
+export const getPdfDataFromFirebase = async () => {
+  // return {blocks,formStyles};
+};
+
 export const makePdf = async (blocks: any[], formStyles: FormStyles) => {
   console.log(formStyles.titleFillColor);
 
