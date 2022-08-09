@@ -36,7 +36,7 @@ export class SectionStyles {
       font-weight: 600;
       font-size: 24px;
       display: inline-block;
-      padding: 2px 2px;
+      padding: 3px 6px;
       margin: 0px;
       color: ${formStyles.titleColor};
     `;

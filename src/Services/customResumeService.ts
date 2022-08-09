@@ -11,7 +11,7 @@ import { WorksSection1 } from "../resumeTemplates/custom/WorksSection";
 import { FormStyles } from "../interfaces/FormStyles";
 import { AboutSection1 } from "../resumeTemplates/custom/AboutSections";
 import { ContactSection1, ContactSection2 } from "../resumeTemplates/custom/ContactSections";
-import { RatingsSection1 } from "../resumeTemplates/custom/RatingsSections";
+import { RatingsSection1, RatingsSection2 } from "../resumeTemplates/custom/RatingsSections";
 import { DocumentData, getFirestore } from "firebase-admin/firestore";
 import { firebaseApp } from "..";
 
@@ -88,6 +88,8 @@ export class CustomResumeService {
         return ProjectsSection1(element, formStyles);
       case "ratings1":
         return RatingsSection1(element, formStyles);
+      case "ratings2":
+        return RatingsSection2(element, formStyles);
       case "others1":
         return OthersSection1(element, formStyles);
       default:
