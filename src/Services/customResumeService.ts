@@ -46,6 +46,18 @@ export class CustomResumeService {
   };
 
   /**
+   * delete the pdf data in firestore database after sending the pdf to user.
+   * It is done to save storage space in database
+   * @param resumeID the resumeID
+   * @returns void
+   */
+  deletePdfDataFromFirebase(resumeID: any) {
+    const defaultFirestore = getFirestore(firebaseApp);
+    defaultFirestore.collection("resumes").doc(resumeID).delete();
+    console.log("resume with ID: ", resumeID, " deleted");
+  }
+
+  /**
    * checks if the document is good/correct
    * @param formStyles the global formStyles
    * @returns true or false
