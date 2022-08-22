@@ -6,4 +6,8 @@ export interface AboutWithContact {
   phno: string;
   emails: string[];
   about: string;
+  style: {
+    bgColor: string;
+    textColor: string;
+  };
 }

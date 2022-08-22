@@ -31,7 +31,7 @@ export const RatingsSection1 = (
       y: ratings.y,
       w: ratings.w,
       h: ratings.h,
-      bg: "blue",
+      // bg: "blue",
     })}">
     <div style="${SectionStyles.blockTitleDiv(formStyles, ratings.data.flipped)}">
       <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
@@ -89,7 +89,7 @@ export const RatingsSection2 = (
       y: ratings.y,
       w: ratings.w,
       h: ratings.h,
-      bg: "blue",
+      // bg: "blue",
     })}">
     <div style="${SectionStyles.blockTitleDiv(formStyles, ratings.data.flipped)}">
       <h2 style="${SectionStyles.blockTitleH2(formStyles)}">

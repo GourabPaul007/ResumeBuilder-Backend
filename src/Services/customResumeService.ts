@@ -138,7 +138,7 @@ export class CustomResumeService {
     const pdf = await page.pdf({
       format: "a4",
       printBackground: true,
-      margin: { left: 0, right: 0, top: 24, bottom: 24 },
+      margin: { left: 20, right: 20, top: 20, bottom: 20 },
     });
     await browser.close();
     return pdf;

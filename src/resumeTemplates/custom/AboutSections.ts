@@ -21,10 +21,10 @@ export const AboutSection1 = (
     // bg: "black",
   })}">
     <h1 style="font-weight: 600; display: inline-block; padding: 0px; margin: 0px;">${about.data.name}</h1>
-    <p style="display: inline-block">&nbsp;&nbsp;${about.data.profession}</p>
+    <p style="display: inline-block; padding: 0px; margin: 0px;">&nbsp;&nbsp;${about.data.profession}</p>
     <div style="font-weight: 500; font-size: 15px; margin-top: 0px">
       <!-- the about extra -->
-      <div style="padding-right: 4px; padding-left: 4px;">
+      <div style="padding-right: 4px; padding-left: 4px; padding-top: 0px;">
         <p>${about.data.about}</p>
       </div>
     </div>

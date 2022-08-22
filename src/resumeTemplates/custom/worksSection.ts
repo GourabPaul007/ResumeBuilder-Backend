@@ -8,7 +8,13 @@ export const WorksSection1 = (
   formStyles: FormStyles
 ) => {
   return /*html*/ `
-    <div style="${SectionStyles.sectionWrapper({ x: works.x, y: works.y, w: works.w, h: works.h, bg: "red" })}">
+    <div style="${SectionStyles.sectionWrapper({
+      x: works.x,
+      y: works.y,
+      w: works.w,
+      h: works.h,
+      //  bg: "red"
+    })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
           ${works.data.title}
