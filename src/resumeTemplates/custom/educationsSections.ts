@@ -37,7 +37,7 @@ export const EducationsSection1 = (
               </div>
               <div style="display: flex; flex-direction: column; justify-content: center; align-items: start; flex: 1">
                 <div style="height: 100%; width: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-                  <p style="font-weight: 600; color: #434343; margin: 0px 8px 0px 0px;">${course.organizationName}</p>
+                  <p style="font-weight: 600; margin: 0px 8px 0px 0px;">${course.organizationName}</p>
                   <!------------------------------------------------------------------------------>
                   <!-- Needed to Use margin-top & margin-bottom because align-items wont center -->
                   <!------------------------------------------------------------------------------>
@@ -48,8 +48,8 @@ export const EducationsSection1 = (
           }</p>
                 </div>
 
-                <p style="font-weight: 500; color: #434343; margin: 0px;">${course.courseName}</p>
-                <p style="font-weight: 500; color: #434343; margin: 0px;">${course.courseResults}</p>
+                <p style="font-weight: 500; margin: 0px;">${course.courseName}</p>
+                <p style="font-weight: 500; margin: 0px;">${course.courseResults}</p>
               </div>
             </div>
           `;
@@ -84,13 +84,18 @@ export const EducationsSection2 = (
         ${educations.data.title}
       </h2>
     </div>
-    <div style="display: flex; justify-content: space-evenly; align-items: flex-start; margin: 4px; width: 100%;">
+    <div style="display: flex; justify-content: space-evenly; align-items: flex-start; margin: 2px; width: 100%;">
       ${educations.data.data
         .map((course) => {
           return /*html*/ `
             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0px 5px;">
+              <div style="display: flex; align-items: center; justify-content: center; margin: 0px 0px 2px 0px">
+                ${getIcon({ name: "education", color: formStyles.accentColor })}
+              </div>
               <div style="font-weight: 600; text-align: center;">${course.organizationName}</div>
-              <div style="font-weight: 500; text-align: center; color: ${formStyles.accentColor}">${course.courseDuration}</div>
+              <div style="font-weight: 500; text-align: center; color: ${formStyles.accentColor}">
+                ${course.courseDuration}
+              </div>
               <div style="font-weight: 500; text-align: center;">${course.courseName}</div>
               <div style="font-weight: 500; text-align: center;">${course.courseResults}</div>
             </div>
