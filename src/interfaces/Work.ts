@@ -1,3 +1,5 @@
+import { SingleSectionStyle } from "./_SingleSectionStyle";
+
 export interface Work {
   // id: string;
   workOrganizationName: string;
@@ -8,4 +10,5 @@ export interface Work {
 export interface Works {
   title: string;
   data: Work[];
+  style: SingleSectionStyle;
 }

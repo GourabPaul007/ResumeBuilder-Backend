@@ -21,8 +21,10 @@ export const AboutWithContactSection1 = (
       y: aboutWithContact.y,
       w: aboutWithContact.w,
       h: aboutWithContact.h,
-      bgColor: aboutWithContact.data.style.bgColor,
-      textColor: aboutWithContact.data.style.textColor,
+      sectionStyle: {
+        bgColor: aboutWithContact.data.style.bgColor,
+        textColor: aboutWithContact.data.style.textColor,
+      },
     })}">
       <h1 style="font-weight: 600; margin-bottom: 0px; display: inline-block">${aboutWithContact.data.name}</h1>
       <p style="display: inline-block">&nbsp;&nbsp;${aboutWithContact.data.profession}</p>
@@ -86,8 +88,10 @@ export const AboutWithContactSection2 = (
       y: aboutWithContact.y,
       w: aboutWithContact.w,
       h: aboutWithContact.h,
-      bgColor: aboutWithContact.data.style.bgColor,
-      textColor: aboutWithContact.data.style.textColor,
+      sectionStyle: {
+        bgColor: aboutWithContact.data.style.bgColor,
+        textColor: aboutWithContact.data.style.textColor,
+      },
     })}">
       <!-- the Header section -->
       <h1 style="font-weight: 600; margin-bottom: 0px; display: inline-block">${aboutWithContact.data.name}</h1>

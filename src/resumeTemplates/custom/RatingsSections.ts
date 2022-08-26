@@ -31,7 +31,10 @@ export const RatingsSection1 = (
       y: ratings.y,
       w: ratings.w,
       h: ratings.h,
-      // bg: "blue",
+      sectionStyle: {
+        bgColor: ratings.data.style.bgColor,
+        textColor: ratings.data.style.textColor,
+      },
     })}">
     <div style="${SectionStyles.blockTitleDiv(formStyles, ratings.data.flipped)}">
       <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
@@ -89,7 +92,10 @@ export const RatingsSection2 = (
       y: ratings.y,
       w: ratings.w,
       h: ratings.h,
-      // bg: "blue",
+      sectionStyle: {
+        bgColor: ratings.data.style.bgColor,
+        textColor: ratings.data.style.textColor,
+      },
     })}">
     <div style="${SectionStyles.blockTitleDiv(formStyles, ratings.data.flipped)}">
       <h2 style="${SectionStyles.blockTitleH2(formStyles)}">

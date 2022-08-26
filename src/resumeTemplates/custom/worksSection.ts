@@ -13,7 +13,10 @@ export const WorksSection1 = (
       y: works.y,
       w: works.w,
       h: works.h,
-      //  bg: "red"
+      sectionStyle: {
+        bgColor: works.data.style.bgColor,
+        textColor: works.data.style.textColor,
+      },
     })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">

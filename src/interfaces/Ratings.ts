@@ -1,3 +1,5 @@
+import { SingleSectionStyle } from "./_SingleSectionStyle";
+
 export interface SingleRating {
   id: string;
   ratingSubject: string;
@@ -10,4 +12,5 @@ export interface Ratings {
   icon: "star" | "circle" | "square";
   flipped: boolean;
   data: SingleRating[];
+  style: SingleSectionStyle;
 }

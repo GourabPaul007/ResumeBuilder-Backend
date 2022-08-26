@@ -21,7 +21,10 @@ export const ContactSection1 = (
     y: contact.y,
     w: contact.w,
     h: contact.h,
-    // bg: "black",
+    sectionStyle: {
+      bgColor: contact.data.style.bgColor,
+      textColor: contact.data.style.textColor,
+    },
   })}">
     ${
       contact.data.title === ""
@@ -82,7 +85,10 @@ export const ContactSection2 = (
     y: contact.y,
     w: contact.w,
     h: contact.h,
-    // bg: "black",
+    sectionStyle: {
+      bgColor: contact.data.style.bgColor,
+      textColor: contact.data.style.textColor,
+    },
   })}">
     ${
       contact.data.title === ""

@@ -13,7 +13,10 @@ export const ProjectsSection1 = (
       y: projects.y,
       w: projects.w,
       h: projects.h,
-      // bg: "blue",
+      sectionStyle: {
+        bgColor: projects.data.style.bgColor,
+        textColor: projects.data.style.textColor,
+      },
     })}" >
       <div style="${SectionStyles.blockTitleDiv(formStyles)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">

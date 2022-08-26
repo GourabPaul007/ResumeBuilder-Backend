@@ -11,7 +11,10 @@ export const SkillsSection1 = (
     y: skills.y,
     w: skills.w,
     h: skills.h,
-    // bg: "pink",
+    sectionStyle: {
+      bgColor: skills.data.style.bgColor,
+      textColor: skills.data.style.textColor,
+    },
   })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles, skills.data.flipped)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
@@ -55,7 +58,10 @@ export const SkillsSection2 = (
       y: skills.y,
       w: skills.w,
       h: skills.h,
-      // bg: "pink"
+      sectionStyle: {
+        bgColor: skills.data.style.bgColor,
+        textColor: skills.data.style.textColor,
+      },
     })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles, skills.data.flipped)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">

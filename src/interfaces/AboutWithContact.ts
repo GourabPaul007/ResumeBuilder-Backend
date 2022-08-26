@@ -1,3 +1,5 @@
+import { SingleSectionStyle } from "./_SingleSectionStyle";
+
 export interface AboutWithContact {
   name: string;
   profession: string;
@@ -6,8 +8,5 @@ export interface AboutWithContact {
   phno: string;
   emails: string[];
   about: string;
-  style: {
-    bgColor: string;
-    textColor: string;
-  };
+  style: SingleSectionStyle;
 }

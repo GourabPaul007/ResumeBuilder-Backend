@@ -1,4 +1,19 @@
 import { FormStyles } from "../../interfaces/FormStyles";
+import { SingleSectionStyle } from "../../interfaces/_SingleSectionStyle";
+
+const getMargin = (left: number, right: number): string => {
+  let leftM = "0px",
+    rightM = "0px";
+  if (left == 0) {
+    rightM = "10px";
+  } else if (right == 0) {
+    leftM = "10px";
+  } else {
+    leftM = "5px";
+    rightM = "5px";
+  }
+  return "0px " + rightM + " 0px " + leftM;
+};
 
 export class SectionStyles {
   static sectionWrapper({
@@ -6,15 +21,13 @@ export class SectionStyles {
     y,
     w,
     h,
-    bgColor,
-    textColor,
+    sectionStyle,
   }: {
     x: number;
     y: number;
     w: number;
     h: number;
-    bgColor?: string;
-    textColor?: string;
+    sectionStyle: SingleSectionStyle;
   }): string {
     // added +10 to height to cover up the blank spaces between blocks(not anymore)
     // added +10 to top so that the card doesnt get cropped on top
@@ -24,16 +37,18 @@ export class SectionStyles {
       padding-right: 20px;
       padding-top: 12px;
       padding-bottom: 12px;
-      background-color: ${bgColor ? bgColor : "#6b5be6"};
-      color: ${textColor ? textColor : "#000000"};
+      background-color: ${sectionStyle.bgColor ? sectionStyle.bgColor : "#6b5be6"};
+      color: ${sectionStyle.textColor ? sectionStyle.textColor : "#000000"};
       overflow: hidden;
       left: ${x * 17.5}mm;
       top: ${y * 10 + (y - 1) * 10 + 10}px;
-      width: ${w * 17.5}mm;
+      width: ${w * 17.5 - 3}mm;
       height: ${h * 10 + (h - 1) * 10}px;
       border-radius: 5px;
     `;
   }
+
+  // margin: ${getMargin(x, x - 12)}
 
   static blockTitleDiv(formStyles: FormStyles, flipped?: boolean): string {
     return `

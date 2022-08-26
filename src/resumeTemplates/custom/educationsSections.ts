@@ -20,7 +20,10 @@ export const EducationsSection1 = (
     y: educations.y,
     w: educations.w,
     h: educations.h,
-    // bg: "green",
+    sectionStyle: {
+      bgColor: educations.data.style.bgColor,
+      textColor: educations.data.style.textColor,
+    },
   })}">
     <div style="${SectionStyles.blockTitleDiv(formStyles)}">
       <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
@@ -77,7 +80,10 @@ export const EducationsSection2 = (
     y: educations.y,
     w: educations.w,
     h: educations.h,
-    // bg: "green",
+    sectionStyle: {
+      bgColor: educations.data.style.bgColor,
+      textColor: educations.data.style.textColor,
+    },
   })}">
     <div style="${SectionStyles.blockTitleDiv(formStyles)}">
       <h2 style="${SectionStyles.blockTitleH2(formStyles)}">

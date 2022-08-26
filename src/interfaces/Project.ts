@@ -1,3 +1,5 @@
+import { SingleSectionStyle } from "./_SingleSectionStyle";
+
 export interface Project {
   // id: string;
   projectName: string;
@@ -7,4 +9,5 @@ export interface Project {
 export interface Projects {
   title: string;
   data: Project[];
+  style: SingleSectionStyle;
 }

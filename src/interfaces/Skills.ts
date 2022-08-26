@@ -1,3 +1,5 @@
+import { SingleSectionStyle } from "./_SingleSectionStyle";
+
 export interface Skills {
   color: string;
   chipRadius: number;
@@ -6,4 +8,5 @@ export interface Skills {
   filled: boolean;
   flipped: boolean;
   data: string[];
+  style: SingleSectionStyle;
 }

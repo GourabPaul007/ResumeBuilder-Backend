@@ -7,7 +7,16 @@ export const OthersSection1 = (
   formStyles: FormStyles
 ) => {
   return /*html*/ `
-    <div style="${SectionStyles.sectionWrapper({ x: others.x, y: others.y, w: others.w, h: others.h })}">
+    <div style="${SectionStyles.sectionWrapper({
+      x: others.x,
+      y: others.y,
+      w: others.w,
+      h: others.h,
+      sectionStyle: {
+        bgColor: others.data.style.bgColor,
+        textColor: others.data.style.textColor,
+      },
+    })}">
       <div style="${SectionStyles.blockTitleDiv(formStyles)}">
         <h2 style="${SectionStyles.blockTitleH2(formStyles)}">
           ${others.data.title}

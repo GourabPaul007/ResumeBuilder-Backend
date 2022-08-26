@@ -1,3 +1,5 @@
+import { SingleSectionStyle } from "./_SingleSectionStyle";
+
 export interface Course {
   courseName: string;
   organizationName: string;
@@ -8,4 +10,5 @@ export interface Course {
 export interface Educations {
   title: string;
   data: Course[];
+  style: SingleSectionStyle;
 }

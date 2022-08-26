@@ -18,6 +18,10 @@ export const AboutSection1 = (
     y: about.y,
     w: about.w,
     h: about.h,
+    sectionStyle: {
+      bgColor: about.data.style.bgColor,
+      textColor: about.data.style.textColor,
+    },
     // bg: "black",
   })}">
     <h1 style="font-weight: 600; display: inline-block; padding: 0px; margin: 0px;">${about.data.name}</h1>
