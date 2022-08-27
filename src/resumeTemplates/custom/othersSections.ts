@@ -23,21 +23,20 @@ export const OthersSection1 = (
         </h2>
       </div>
       <!--<h2 style="font-weight: 600; color: #123456">Other Skills & Activities</h2>-->
-      <div style="margin-bottom: 12px">
+      <div style="margin-bottom: 12px; padding-left: 8px;">
         <!-- Other Skills and Activities Area -->
-        <ul>
-          ${others.data.data
-            .map((element) => {
-              return `
-                <li>
-                  <div>
-                    ${element}
-                  </div>
-                </li>
-                `;
-            })
-            .join("")}
-        </ul>
+        ${others.data.data
+          .map((element) => {
+            return /* html */ `
+              <div style="display: flex; margin-bottom: 8px; font-size: 15px;">
+                <div>${String.fromCharCode(others.data.bullet)}&nbsp;&nbsp;</div>
+                <div>
+                  ${element}
+                </div>
+              </div>
+              `;
+          })
+          .join("")}
       </div>
     </div>
   `;
